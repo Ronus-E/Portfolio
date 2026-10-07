@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- Encodage des caractères : indispensable pour afficher les accents -->
+  <meta charset="UTF-8">
+
+  <!-- Rendu responsive : le site s'adapte à la largeur de l'écran -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO : titre affiché dans l'onglet et dans les résultats de recherche -->
+  <title>Ronus Eldo TOLIZARA — Portfolio étudiant en informatique</title>
+
+  <!-- SEO : description courte affichée dans les résultats de recherche -->
+  <meta name="description"
+    content="Portfolio de Ronus Eldo TOLIZARA, étudiant en informatique qui apprend Linux, Bash, Git et la cybersécurité en construisant des projets.">
+
+  <!-- SEO : nom de l'auteur du site -->
+  <meta name="author" content="Ronus Eldo TOLIZARA">
+
+  <!-- Lien vers la feuille de style (mise en forme) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================================================
+       BARRE DE NAVIGATION
+       <header> = en-tête de page, <nav> = zone de navigation
+       ========================================================= -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navigation principale">
+
+      <!-- Logo : le nom "portfolio" renvoie au haut de la page -->
+      <a href="#accueil" class="nav__logo">
+        <span class="nav__logo-symbol" aria-hidden="true">$</span> portfolio
+      </a>
+
+      <!--
+        Bouton menu mobile.
+        aria-expanded indique aux lecteurs d'écran si le menu est ouvert ou fermé.
+        aria-controls pointe vers l'élément qu'il pilote.
+        Il est masqué en CSS sur grand écran.
+      -->
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu"
+        aria-label="Ouvrir le menu">
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <!-- Liste des sections du site -->
+      <ul id="nav-menu" class="nav__menu">
+        <li><a href="#accueil" class="nav__link">Accueil</a></li>
+        <li><a href="#apropos" class="nav__link">À propos</a></li>
+        <li><a href="#competences" class="nav__link">Compétences</a></li>
+        <li><a href="#projets" class="nav__link">Projets</a></li>
+        <li><a href="#parcours" class="nav__link">Parcours</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- =========================================================
+         1. ACCUEIL — présentation honnête
+         ========================================================= -->
+    <section id="accueil" class="hero">
+      <div class="container hero__inner">
+
+        <p class="hero__eyebrow">// étudiant en informatique</p>
+
+        <h1 class="hero__title">
+          Ronus Eldo TOLIZARA
+          <span class="hero__title-accent">Étudiant en informatique — Linux, Bash et apprentissage de la cybersécurité.</span>
+        </h1>
+
+        <p class="hero__text">
+          Je développe progressivement mes compétences à travers la pratique et des
+          projets personnels. Je ne prétends pas tout maîtriser : j'apprends en
+          comprenant, en testant et en corrigeant.
+        </p>
+
+        <!-- Boutons d'action (appels à l'action) -->
+        <div class="hero__actions">
+          <a href="#projets" class="btn btn--primary">Voir mes projets</a>
+          <a href="#parcours" class="btn btn--outline">Voir mon parcours</a>
+          <!-- Lien GitHub réel : Ronus-E -->
+          <a href="https://github.com/Ronus-E" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         2. À PROPOS
+         ========================================================= -->
+    <section id="apropos" class="section">
+      <div class="container">
+        <h2 class="section__title">À propos</h2>
+
+        <div class="about__text">
+          <p>
+            Je suis étudiant en informatique, en phase d'apprentissage. Mon parcours
+            actuel est orienté vers <strong>Linux</strong>, le <strong>terminal</strong>,
+            le <strong>Bash</strong>, <strong>Git / GitHub</strong>, la
+            <strong>programmation</strong> et la <strong>cybersécurité</strong>.
+          </p>
+          <p>
+            Ma façon d'apprendre est simple : <em>comprendre une notion, la pratiquer
+            dans un environnement réel, tester, corriger les erreurs, puis construire
+            un petit projet avec.</em> C'est pour cela que j'utilise Linux au quotidien
+            plutôt que de me limiter à la théorie.
+          </p>
+          <p>
+            Je considère ce portfolio comme un reflet fidèle de là où j'en suis
+            aujourd'hui : il évoluera au même rythme que mes compétences.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         3. COMPÉTENCES — trois niveaux, sans pourcentages
+         ========================================================= -->
+    <section id="competences" class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Compétences</h2>
+        <p class="section__subtitle">
+          Présentées par niveau de pratique réel : « en apprentissage » ne veut pas
+          dire « maîtrisé », et « exploration » ne veut pas dire « compétence ».
+        </p>
+
+        <div class="skills__grid">
+
+          <!-- Groupe 1 : les bases que j'utilise réellement -->
+          <article class="skill-card">
+            <h3 class="skill-card__title">Bases pratiques</h3>
+            <p class="skill-card__hint">Ce que je sais utiliser dans le terminal.</p>
+            <ul class="skill-card__list">
+              <li><span class="tag tag--bases">Bases pratiques</span> Linux</li>
+              <li><span class="tag tag--bases">Bases pratiques</span> Terminal</li>
+              <li><span class="tag tag--bases">Bases pratiques</span> Fichiers et dossiers</li>
+              <li><span class="tag tag--bases">Bases pratiques</span> Chemins absolus et relatifs</li>
+              <li><span class="tag tag--bases">Bases pratiques</span> Commandes de base : pwd, ls, cd, cat, less, mkdir, touch, rm</li>
+              <li><span class="tag tag--bases">Bases pratiques</span> Permissions : r / w / x, propriétaire, groupe, autres</li>
+              <li><span class="tag tag--bases">Bases pratiques</span> chmod symbolique et numérique (600, 640, 644, 700, 755)</li>
+              <li><span class="tag tag--bases">Bases pratiques</span> Inspection des permissions avec stat</li>
+            </ul>
+          </article>
+
+          <!-- Groupe 2 : je suis en train de l'apprendre -->
+          <article class="skill-card">
+            <h3 class="skill-card__title">En apprentissage</h3>
+            <p class="skill-card__hint">J'apprends ces notions, sans encore les maîtriser.</p>
+            <ul class="skill-card__list">
+              <li><span class="tag tag--learning">En apprentissage</span> Bash : shebang, echo, variables, paramètres ($1), conditions if, tests</li>
+              <li><span class="tag tag--learning">En apprentissage</span> Écriture de scripts Bash</li>
+              <li><span class="tag tag--learning">En apprentissage</span> Git</li>
+              <li><span class="tag tag--learning">En apprentissage</span> GitHub</li>
+              <li><span class="tag tag--learning">En apprentissage</span> Programmation</li>
+            </ul>
+          </article>
+
+          <!-- Groupe 3 : simple exploration -->
+          <article class="skill-card">
+            <h3 class="skill-card__title">Exploration</h3>
+            <p class="skill-card__hint">Je découvre ce domaine, je n'ai aucune expertise.</p>
+            <ul class="skill-card__list">
+              <li><span class="tag tag--explore">Exploration</span> Cybersécurité : fondamentaux, pratique éthique et légale</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         4. PROJETS — uniquement les projets réellement confirmés
+         ========================================================= -->
+    <section id="projets" class="section">
+      <div class="container">
+        <h2 class="section__title">Projets</h2>
+        <p class="section__subtitle">
+          Une seule entrée pour l'instant : mon premier projet d'apprentissage.
+          Rien d'inventé pour remplir la page.
+        </p>
+
+        <article class="project-card">
+          <div class="project-card__header">
+            <h3 class="project-card__title">linux-permission-manager</h3>
+            <span class="project-card__status">Projet d'apprentissage</span>
+          </div>
+
+          <p class="project-card__desc">
+            Petit projet d'apprentissage réalisé en Bash pour pratiquer la gestion et
+            l'inspection des permissions Linux.
+          </p>
+
+          <div class="project-card__block">
+            <h4 class="project-card__label">Objectif</h4>
+            <p>
+              Comprendre concrètement les permissions Linux en travaillant dessus :
+              inspecter les permissions d'un fichier et les modifier (chmod symbolique
+              et numérique), tout en pratiquant l'écriture d'un script Bash.
+            </p>
+          </div>
+
+          <div class="project-card__block">
+            <h4 class="project-card__label">Technologies utilisées</h4>
+            <ul class="project-card__tags">
+              <li class="chip">Bash</li>
+              <li class="chip">Linux</li>
+              <li class="chip">chmod</li>
+              <li class="chip">stat</li>
+            </ul>
+          </div>
+
+          <div class="project-card__block">
+            <h4 class="project-card__label">Ce que je mets en pratique</h4>
+            <p>
+              Script principal <code>perm-manager.sh</code> : variables Bash,
+              conditions <code>if</code>, paramètres de script (<code>$1</code>),
+              tests, et utilisation de commandes Linux dans un script.
+            </p>
+          </div>
+
+          <!-- Lien GitHub réel du projet -->
+          <a class="btn btn--outline project-card__link" href="https://github.com/Ronus-E/linux-permission-manager"
+            target="_blank" rel="noopener noreferrer">
+            Voir sur GitHub
+          </a>
+        </article>
+
+        <p class="projects__note">
+          D'autres projets seront ajoutés ici au fur et à mesure de mon apprentissage.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5. PARCOURS D'APPRENTISSAGE — sans dates fictives
+         ========================================================= -->
+    <section id="parcours" class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Parcours d'apprentissage</h2>
+        <p class="section__subtitle">
+          Une progression personnelle, par thème. Chaque flèche représente une étape
+          franchie — aucune date, aucune expérience professionnelle inventée.
+        </p>
+
+        <div class="journey__grid">
+
+          <div class="journey-card">
+            <h3 class="journey-card__title">Linux</h3>
+            <ul class="journey-card__path">
+              <li>Bases du terminal</li>
+              <li>Fichiers et répertoires</li>
+              <li>Permissions (chmod, stat)</li>
+              <li>Pratique avec Bash</li>
+            </ul>
+          </div>
+
+          <div class="journey-card">
+            <h3 class="journey-card__title">Bash</h3>
+            <ul class="journey-card__path">
+              <li>Syntaxe de base</li>
+              <li>Variables</li>
+              <li>Paramètres de script</li>
+              <li>Conditions (if, tests)</li>
+              <li>Scripts pratiques</li>
+            </ul>
+          </div>
+
+          <div class="journey-card">
+            <h3 class="journey-card__title">Git / GitHub</h3>
+            <ul class="journey-card__path">
+              <li>Apprentissage progressif</li>
+              <li>Gestion de projets</li>
+              <li>Publication et documentation</li>
+            </ul>
+          </div>
+
+          <div class="journey-card">
+            <h3 class="journey-card__title">Cybersécurité</h3>
+            <ul class="journey-card__path">
+              <li>Exploration des fondamentaux</li>
+              <li>Apprentissage progressif</li>
+              <li>Futurs projets — rien de confirmé pour l'instant</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         6. MA MÉTHODE D'APPRENTISSAGE
+         ========================================================= -->
+    <section id="methode" class="section">
+      <div class="container">
+        <h2 class="section__title">Ma méthode d'apprentissage</h2>
+        <p class="section__subtitle">
+          Le cycle que je répète pour chaque notion nouvelle : je comprends, je
+          pratique, je me trompe, je corrige, je construis — puis je recommence.
+        </p>
+
+        <!-- Liste ordonnée : les numéros sont affichés par le CSS -->
+        <ol class="method__chain">
+          <li class="method__step">Comprendre</li>
+          <li class="method__step">Pratiquer</li>
+          <li class="method__step">Tester</li>
+          <li class="method__step">Corriger</li>
+          <li class="method__step">Construire</li>
+          <li class="method__step">Progresser</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         7. OBJECTIFS — des intentions, pas des acquis
+         ========================================================= -->
+    <section id="objectifs" class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Objectifs</h2>
+        <p class="section__subtitle">
+          Ce que je souhaite approfondir progressivement — pas ce que je maîtrise déjà.
+        </p>
+
+        <ul class="goals__list">
+          <li class="goal">Approfondir Linux, au-delà des bases du terminal</li>
+          <li class="goal">Améliorer mes scripts Bash et les rendre utiles</li>
+          <li class="goal">Avancer en programmation, étape par étape</li>
+          <li class="goal">Mieux utiliser Git et GitHub au quotidien</li>
+          <li class="goal">Explorer les fondamentaux de la cybersécurité</li>
+          <li class="goal">Construire des projets un peu plus ambitieux à chaque étape</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         8. CONTACT — uniquement les coordonnées réelles
+         ========================================================= -->
+    <section id="contact" class="section">
+      <div class="container contact__inner">
+        <h2 class="section__title">Contact</h2>
+        <p class="section__subtitle">
+          Pour échanger ou suivre ma progression.
+        </p>
+
+        <!-- <address> : conteneur sémantique pour des coordonnées de contact -->
+        <address class="contact__links">
+          <a class="btn btn--outline" href="https://github.com/Ronus-E" target="_blank" rel="noopener noreferrer">
+            GitHub — Ronus-E
+          </a>
+          <a class="btn btn--outline" href="mailto:eldockarter@gmail.com">
+            Email — eldockarter@gmail.com
+          </a>
+        </address>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       9. FOOTER — l'année est injectée par JavaScript
+       ========================================================= -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>&copy; <span id="current-year">2026</span> Ronus Eldo TOLIZARA — Portfolio étudiant.</p>
+      <p class="site-footer__note">Apprentissage en cours.</p>
+    </div>
+  </footer>
+
+  <!-- Script placé avant </body> pour que le HTML existe déjà au chargement -->
+  <script src="script.js"></script>
+</body>
+
+</html>
