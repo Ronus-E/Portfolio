@@ -12,11 +12,14 @@ sans framework, sans bibliothèque et sans backend.
 Ce site présente, de façon honnête et fidèle, le parcours actuel de
 **Ronus Eldo TOLIZARA**, étudiant en informatique :
 
-- ses compétences actuelles, classées par niveau de pratique réel ;
-- ses projets personnels confirmés ;
-- son parcours d'apprentissage (Linux, Bash, Git/GitHub, cybersécurité) ;
+- ses compétences, classées par domaine et par état réel d'apprentissage
+  (`Pratiqué`, `En apprentissage`, `Prévu`) ;
+- son premier projet personnel terminé : **Linux Permission Manager v1.0** ;
+- son parcours d'apprentissage en sept étapes (Linux, Bash, réseaux,
+  cybersécurité, projets) ;
 - sa méthode d'apprentissage ;
-- ses objectifs.
+- ses objectifs ;
+- un espace documentation pour ses futures fiches techniques.
 
 ## Objectif du projet
 
@@ -27,21 +30,33 @@ d'étudiant.
 
 ## Technologies utilisées
 
-| Technologie | Rôle                                   |
-| ----------- | -------------------------------------- |
-| HTML5       | Structure et contenu du site           |
-| CSS3        | Mise en forme, couleurs, responsive    |
-| JavaScript  | Menu mobile, année dynamique, navigation active |
+| Technologie | Rôle                                             |
+| ----------- | ------------------------------------------------ |
+| HTML5       | Structure et contenu du site                     |
+| CSS3        | Mise en forme, couleurs, responsive              |
+| JavaScript  | Menu mobile, année dynamique, navigation active  |
 
 ## Structure du projet
 
-```
+```text
 portfolio/
 ├── index.html    → structure et contenu des sections
 ├── style.css     → apparence, disposition, responsive
 ├── script.js     → comportements (menu, année, lien actif)
 └── README.md     → cette documentation
 ```
+
+### Sections de la page
+
+1. **Accueil** — présentation et liens rapides.
+2. **À propos** — intérêt pour Linux, réseaux et cybersécurité.
+3. **Compétences** — cartes par domaine, avec les trois états d'apprentissage.
+4. **Projets** — fiche complète de Linux Permission Manager v1.0.
+5. **Parcours** — timeline en sept étapes.
+6. **Méthode** — cycle d'apprentissage.
+7. **Objectifs** — intentions de progression.
+8. **Documentation** — notes et comptes rendus publics à venir.
+9. **Contact** — coordonnées réelles uniquement.
 
 ## Lancer le portfolio localement
 
@@ -73,34 +88,37 @@ etc.).
 
 - Couleurs du site : variables `:root` dans `style.css` (ex. `--accent`).
 - Ajout d'un projet : dupliquer un bloc `<article class="project-card">` dans la
-  section Projets.
-- Ajout d'une compétence : dupliquer une ligne dans le groupe de compétences
-  concerné.
+  section Projets, puis adapter statut, fonctionnalités et lien.
+- Ajout d'une compétence : dupliquer une ligne dans la carte de domaine
+  concernée, avec l'étiquette adaptée (`tag--practice`, `tag--learning` ou
+  `tag--planned`).
+- Mise à jour du parcours : modifier le texte du badge
+  (`timeline__status--practice`, `--learning` ou `--planned`) sur l'étape
+  concernée.
 
-## Publication sur GitHub
+## Projet principal
 
-Le dépôt GitHub du projet principal est :
+Le dépôt GitHub du projet présenté est :
 [`Ronus-E/linux-permission-manager`](https://github.com/Ronus-E/linux-permission-manager).
 
-Ce portfolio n'est pas encore publié. Pour le publier :
+Statut affiché sur le portfolio : **Terminé — v1.0**.
+
+## Publication
+
+Le portfolio est publié via **GitHub Pages** :
+
+- site : <https://ronus-e.github.io/Portfolio/>
+- dépôt : <https://github.com/Ronus-E/Portfolio>
+
+Pour republier après une modification :
 
 ```bash
-# 1. Initialiser le dépôt Git
-git init
 git add .
-git commit -m "Portfolio initial"
-
-# 2. Créer un dépôt vide nommé "portfolio" sur GitHub, puis :
-git remote add origin https://github.com/Ronus-E/portfolio.git
-git branch -M main
-git push -u origin main
+git commit -m "Mise à jour du portfolio"
+git push
 ```
 
-Pour publier le site gratuitement avec GitHub Pages :
-
-1. Sur GitHub : **Settings → Pages**
-2. Source : branche `main`, dossier `/ (root)`
-3. Le site sera disponible sur `https://Ronus-E.github.io/portfolio/`
+GitHub Pages republie automatiquement le site après un `push` sur `main`.
 
 ## Portfolio évolutif
 
@@ -112,8 +130,10 @@ avance pour gonfler la page.
 ## Accessibilité et SEO
 
 - `lang="fr"`, meta description, balises sémantiques
-  (`header`, `nav`, `main`, `section`, `footer`, `address`)
+  (`header`, `nav`, `main`, `section`, `footer`, `address`, `figure`, `ol`)
 - Navigation utilisable au clavier (`focus-visible`)
 - Menu mobile piloté par `aria-expanded`
+- Bloc terminal focalisable au clavier (`tabindex="0"`) pour le défilement
+- Attribut `aria-hidden` sur les éléments purement décoratifs
 - Contrastes vérifiés sur fond sombre
 - Respect de `prefers-reduced-motion`

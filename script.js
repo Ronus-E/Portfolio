@@ -6,6 +6,8 @@
    3. Fermeture du menu avec la touche Échap
    4. Mise à jour de l'année dans le footer
    5. Lien actif dans la navigation selon la section affichée
+   6. Barre de progression de lecture en haut de page
+   7. Révélation douce des sections au défilement (si animations autorisées)
    Aucune dépendance externe — JavaScript vanilla.
    ========================================================================= */
 
@@ -134,4 +136,55 @@ if ("IntersectionObserver" in window && sections.length > 0) {
   );
 
   sections.forEach((section) => observer.observe(section));
+}
+
+/* -------------------------------------------------------------------------
+   6. BARRE DE PROGRESSION DE LECTURE
+   Une fine barre en haut de page indique la progression dans le document.
+   L'élément est créé ici (aucune modification du HTML nécessaire).
+   ------------------------------------------------------------------------- */
+const progressBar = document.createElement("div");
+progressBar.className = "scroll-progress";
+progressBar.setAttribute("aria-hidden", "true"); // purement décoratif
+document.body.appendChild(progressBar);
+
+function updateProgress() {
+  const root = document.documentElement;
+  const scrollable = root.scrollHeight - root.clientHeight;
+  const ratio = scrollable > 0 ? root.scrollTop / scrollable : 0;
+  progressBar.style.width = (ratio * 100).toFixed(2) + "%";
+}
+
+updateProgress();
+window.addEventListener("scroll", updateProgress, { passive: true });
+window.addEventListener("resize", updateProgress);
+
+/* -------------------------------------------------------------------------
+   7. RÉVÉLATION DOUCE AU DÉFILEMENT
+   Les sections apparaissent légèrement quand elles entrent dans l'écran.
+   Désactivé si l'utilisateur préfère moins d'animations, ou si
+   IntersectionObserver n'est pas disponible.
+   ------------------------------------------------------------------------- */
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+
+if (!prefersReducedMotion && "IntersectionObserver" in window) {
+  const revealTargets = document.querySelectorAll(".hero__inner, .section");
+
+  // État initial : éléments légèrement décalés et transparents (voir CSS)
+  revealTargets.forEach((el) => el.classList.add("reveal-init"));
+
+  const revealObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("reveal-in");
+        obs.unobserve(entry.target); // on n'anime qu'une seule fois
+      });
+    },
+    { rootMargin: "0px 0px -8% 0px", threshold: 0.06 }
+  );
+
+  revealTargets.forEach((el) => revealObserver.observe(el));
 }

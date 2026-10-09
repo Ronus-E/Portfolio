@@ -9,11 +9,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO : titre affiché dans l'onglet et dans les résultats de recherche -->
-  <title>Ronus Eldo TOLIZARA — Portfolio étudiant en informatique</title>
+  <title>Ronus Eldo TOLIZARA — Linux, réseaux et cybersécurité</title>
 
   <!-- SEO : description courte affichée dans les résultats de recherche -->
   <meta name="description"
-    content="Portfolio de Ronus Eldo TOLIZARA, étudiant en informatique qui apprend Linux, Bash, Git et la cybersécurité en construisant des projets.">
+    content="Portfolio de Ronus Eldo TOLIZARA, étudiant en informatique qui apprend Linux, Bash et les fondamentaux des réseaux et de la cybersécurité en construisant des projets.">
 
   <!-- SEO : nom de l'auteur du site -->
   <meta name="author" content="Ronus Eldo TOLIZARA">
@@ -56,6 +56,7 @@
         <li><a href="#competences" class="nav__link">Compétences</a></li>
         <li><a href="#projets" class="nav__link">Projets</a></li>
         <li><a href="#parcours" class="nav__link">Parcours</a></li>
+        <li><a href="#documentation" class="nav__link">Documentation</a></li>
         <li><a href="#contact" class="nav__link">Contact</a></li>
       </ul>
     </nav>
@@ -73,19 +74,21 @@
 
         <h1 class="hero__title">
           Ronus Eldo TOLIZARA
-          <span class="hero__title-accent">Étudiant en informatique — Linux, Bash et apprentissage de la cybersécurité.</span>
+          <span class="hero__title-accent">Linux, réseaux et cybersécurité : apprendre, pratiquer, construire.</span>
         </h1>
 
         <p class="hero__text">
-          Je développe progressivement mes compétences à travers la pratique et des
-          projets personnels. Je ne prétends pas tout maîtriser : j'apprends en
-          comprenant, en testant et en corrigeant.
+          J'avance progressivement : j'étudie Linux et le terminal, je pratique Bash
+          à travers de petits projets, et je prépare une montée en compétences vers
+          les réseaux puis les fondamentaux de la cybersécurité. Je ne prétends pas
+          tout maîtriser : j'apprends en comprenant, en testant et en corrigeant.
         </p>
 
         <!-- Boutons d'action (appels à l'action) -->
         <div class="hero__actions">
           <a href="#projets" class="btn btn--primary">Voir mes projets</a>
-          <a href="#parcours" class="btn btn--outline">Voir mon parcours</a>
+          <a href="#competences" class="btn btn--outline">Mes compétences</a>
+          <a href="#parcours" class="btn btn--outline">Mon parcours</a>
           <!-- Lien GitHub réel : Ronus-E -->
           <a href="https://github.com/Ronus-E" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">
             GitHub
@@ -105,8 +108,8 @@
           <p>
             Je suis étudiant en informatique, en phase d'apprentissage. Mon parcours
             actuel est orienté vers <strong>Linux</strong>, le <strong>terminal</strong>,
-            le <strong>Bash</strong>, <strong>Git / GitHub</strong>, la
-            <strong>programmation</strong> et la <strong>cybersécurité</strong>.
+            le <strong>Bash</strong>, les <strong>réseaux</strong>,
+            <strong>Git / GitHub</strong> et les <strong>fondamentaux de la cybersécurité</strong>.
           </p>
           <p>
             Ma façon d'apprendre est simple : <em>comprendre une notion, la pratiquer
@@ -115,61 +118,109 @@
             plutôt que de me limiter à la théorie.
           </p>
           <p>
-            Je considère ce portfolio comme un reflet fidèle de là où j'en suis
-            aujourd'hui : il évoluera au même rythme que mes compétences.
+            Je documente ce que j'apprends et je tente de résoudre les problèmes par
+            moi-même avant de chercher de l'aide. Chaque projet me sert à consolider
+            les bases et à préparer l'étape suivante. Je considère ce portfolio comme
+            un reflet fidèle de là où j'en suis aujourd'hui : il évoluera au même
+            rythme que mes compétences.
           </p>
         </div>
       </div>
     </section>
 
     <!-- =========================================================
-         3. COMPÉTENCES — trois niveaux, sans pourcentages
+         3. COMPÉTENCES — catégories + trois états, sans pourcentages
          ========================================================= -->
     <section id="competences" class="section section--alt">
       <div class="container">
         <h2 class="section__title">Compétences</h2>
         <p class="section__subtitle">
-          Présentées par niveau de pratique réel : « en apprentissage » ne veut pas
-          dire « maîtrisé », et « exploration » ne veut pas dire « compétence ».
+          Organisées par domaine et par état réel d'apprentissage. Aucun pourcentage :
+          ces trois étiquettes décrivent ce qui est pratiqué, ce qui est en cours
+          d'étude et ce qui reste à venir.
         </p>
+
+        <!-- Légende des trois états utilisés dans les cartes ci-dessous -->
+        <ul class="skills__legend">
+          <li><span class="tag tag--practice">Pratiqué</span> notion déjà mise en application dans un exercice ou un projet.</li>
+          <li><span class="tag tag--learning">En apprentissage</span> notion en cours d'étude et de consolidation.</li>
+          <li><span class="tag tag--planned">Prévu</span> étape future de mon parcours, pas encore travaillée.</li>
+        </ul>
 
         <div class="skills__grid">
 
-          <!-- Groupe 1 : les bases que j'utilise réellement -->
+          <!-- Linux et terminal -->
           <article class="skill-card">
-            <h3 class="skill-card__title">Bases pratiques</h3>
-            <p class="skill-card__hint">Ce que je sais utiliser dans le terminal.</p>
+            <h3 class="skill-card__title">Linux et terminal</h3>
+            <p class="skill-card__hint">Ce que j'utilise réellement dans le terminal.</p>
             <ul class="skill-card__list">
-              <li><span class="tag tag--bases">Bases pratiques</span> Linux</li>
-              <li><span class="tag tag--bases">Bases pratiques</span> Terminal</li>
-              <li><span class="tag tag--bases">Bases pratiques</span> Fichiers et dossiers</li>
-              <li><span class="tag tag--bases">Bases pratiques</span> Chemins absolus et relatifs</li>
-              <li><span class="tag tag--bases">Bases pratiques</span> Commandes de base : pwd, ls, cd, cat, less, mkdir, touch, rm</li>
-              <li><span class="tag tag--bases">Bases pratiques</span> Permissions : r / w / x, propriétaire, groupe, autres</li>
-              <li><span class="tag tag--bases">Bases pratiques</span> chmod symbolique et numérique (600, 640, 644, 700, 755)</li>
-              <li><span class="tag tag--bases">Bases pratiques</span> Inspection des permissions avec stat</li>
+              <li><span class="tag tag--practice">Pratiqué</span> Navigation dans le système de fichiers</li>
+              <li><span class="tag tag--practice">Pratiqué</span> Gestion de fichiers et de dossiers (mkdir, touch, rm)</li>
+              <li><span class="tag tag--practice">Pratiqué</span> Chemins absolus et relatifs</li>
+              <li><span class="tag tag--practice">Pratiqué</span> Consultation de fichiers (cat, cat -n, less, ls)</li>
+              <li><span class="tag tag--practice">Pratiqué</span> Permissions : r / w / x, propriétaire, groupe, autres</li>
+              <li><span class="tag tag--practice">Pratiqué</span> chmod symbolique et numérique (600, 640, 644, 700, 755) et stat</li>
+              <li><span class="tag tag--learning">En apprentissage</span> Recherche de fichiers avec find (-name, -iname, -type, -o, parenthèses)</li>
             </ul>
           </article>
 
-          <!-- Groupe 2 : je suis en train de l'apprendre -->
+          <!-- Bash et automatisation -->
           <article class="skill-card">
-            <h3 class="skill-card__title">En apprentissage</h3>
-            <p class="skill-card__hint">J'apprends ces notions, sans encore les maîtriser.</p>
+            <h3 class="skill-card__title">Bash et automatisation</h3>
+            <p class="skill-card__hint">Notions mises en pratique dans mon projet.</p>
             <ul class="skill-card__list">
-              <li><span class="tag tag--learning">En apprentissage</span> Bash : shebang, echo, variables, paramètres ($1), conditions if, tests</li>
-              <li><span class="tag tag--learning">En apprentissage</span> Écriture de scripts Bash</li>
-              <li><span class="tag tag--learning">En apprentissage</span> Git</li>
-              <li><span class="tag tag--learning">En apprentissage</span> GitHub</li>
-              <li><span class="tag tag--learning">En apprentissage</span> Programmation</li>
+              <li><span class="tag tag--practice">Pratiqué</span> Variables et arguments de script ($1, $2)</li>
+              <li><span class="tag tag--practice">Pratiqué</span> Fonctions</li>
+              <li><span class="tag tag--practice">Pratiqué</span> Conditions if</li>
+              <li><span class="tag tag--practice">Pratiqué</span> Structures case</li>
+              <li><span class="tag tag--practice">Pratiqué</span> Boucles while</li>
+              <li><span class="tag tag--practice">Pratiqué</span> Lecture des entrées utilisateur (read)</li>
+              <li><span class="tag tag--practice">Pratiqué</span> Codes de retour (return)</li>
+              <li><span class="tag tag--practice">Pratiqué</span> Validation des entrées et gestion des erreurs</li>
             </ul>
           </article>
 
-          <!-- Groupe 3 : simple exploration -->
+          <!-- Réseaux informatiques -->
           <article class="skill-card">
-            <h3 class="skill-card__title">Exploration</h3>
-            <p class="skill-card__hint">Je découvre ce domaine, je n'ai aucune expertise.</p>
+            <h3 class="skill-card__title">Réseaux informatiques</h3>
+            <p class="skill-card__hint">Partie de mon parcours d'apprentissage, pas encore travaillée sur un projet.</p>
             <ul class="skill-card__list">
-              <li><span class="tag tag--explore">Exploration</span> Cybersécurité : fondamentaux, pratique éthique et légale</li>
+              <li><span class="tag tag--planned">Prévu</span> Modèles et couches réseau</li>
+              <li><span class="tag tag--planned">Prévu</span> Adressage IPv4 et IPv6</li>
+              <li><span class="tag tag--planned">Prévu</span> Sous-réseaux</li>
+              <li><span class="tag tag--planned">Prévu</span> Ethernet et ARP</li>
+              <li><span class="tag tag--planned">Prévu</span> DNS et DHCP</li>
+              <li><span class="tag tag--planned">Prévu</span> TCP et UDP</li>
+              <li><span class="tag tag--planned">Prévu</span> Routage et commutation</li>
+              <li><span class="tag tag--planned">Prévu</span> Diagnostic réseau et analyse du trafic</li>
+            </ul>
+          </article>
+
+          <!-- Cybersécurité -->
+          <article class="skill-card">
+            <h3 class="skill-card__title">Cybersécurité</h3>
+            <p class="skill-card__hint">Objectif de progression. Aucune expérience en pentest ou en forensic.</p>
+            <ul class="skill-card__list">
+              <li><span class="tag tag--planned">Prévu</span> Sécurité Linux</li>
+              <li><span class="tag tag--planned">Prévu</span> Gestion des permissions et des accès</li>
+              <li><span class="tag tag--planned">Prévu</span> Durcissement des systèmes</li>
+              <li><span class="tag tag--planned">Prévu</span> Principes de moindre privilège</li>
+              <li><span class="tag tag--planned">Prévu</span> Analyse des journaux</li>
+              <li><span class="tag tag--planned">Prévu</span> Sécurité réseau</li>
+              <li><span class="tag tag--planned">Prévu</span> Outils de diagnostic et d'analyse</li>
+              <li><span class="tag tag--planned">Prévu</span> Principes de défense et de réponse aux incidents</li>
+            </ul>
+          </article>
+
+          <!-- Outils et documentation -->
+          <article class="skill-card">
+            <h3 class="skill-card__title">Outils et documentation</h3>
+            <p class="skill-card__hint">Outils et méthodes effectivement utilisés.</p>
+            <ul class="skill-card__list">
+              <li><span class="tag tag--practice">Pratiqué</span> Terminal Linux</li>
+              <li><span class="tag tag--practice">Pratiqué</span> Git et GitHub (dépôt personnel publié)</li>
+              <li><span class="tag tag--practice">Pratiqué</span> Markdown</li>
+              <li><span class="tag tag--practice">Pratiqué</span> Documentation technique (README de projet)</li>
             </ul>
           </article>
 
@@ -184,28 +235,44 @@
       <div class="container">
         <h2 class="section__title">Projets</h2>
         <p class="section__subtitle">
-          Une seule entrée pour l'instant : mon premier projet d'apprentissage.
-          Rien d'inventé pour remplir la page.
+          Mon premier projet personnel terminé et publié. Rien d'inventé pour remplir
+          la page : d'autres projets viendront au fur et à mesure de mon apprentissage.
         </p>
 
         <article class="project-card">
           <div class="project-card__header">
-            <h3 class="project-card__title">linux-permission-manager</h3>
-            <span class="project-card__status">Projet d'apprentissage</span>
+            <h3 class="project-card__title">Linux Permission Manager</h3>
+            <span class="project-card__status project-card__status--done">Terminé — v1.0</span>
           </div>
 
           <p class="project-card__desc">
-            Petit projet d'apprentissage réalisé en Bash pour pratiquer la gestion et
-            l'inspection des permissions Linux.
+            Petit outil personnel écrit en Bash pour consulter et modifier les
+            permissions d'un fichier sous Linux, à travers un menu interactif ou des
+            arguments en ligne de commande.
           </p>
 
           <div class="project-card__block">
-            <h4 class="project-card__label">Objectif</h4>
+            <h4 class="project-card__label">Le besoin</h4>
             <p>
               Comprendre concrètement les permissions Linux en travaillant dessus :
-              inspecter les permissions d'un fichier et les modifier (chmod symbolique
-              et numérique), tout en pratiquant l'écriture d'un script Bash.
+              les lire (symboliques et numériques), identifier le propriétaire et le
+              groupe, puis les modifier proprement avec <code>chmod</code>, tout en
+              pratiquant l'écriture d'un script Bash structuré.
             </p>
+          </div>
+
+          <div class="project-card__block">
+            <h4 class="project-card__label">Fonctionnalités existantes</h4>
+            <ul class="project-card__list">
+              <li>Menu interactif (informer, modifier, quitter) et mode avec arguments.</li>
+              <li>Affichage des permissions symboliques et numériques.</li>
+              <li>Affichage du propriétaire et du groupe.</li>
+              <li>Vérification qu'un chemin est bien un fichier et détection des dossiers.</li>
+              <li>Validation des modes autorisés : 600, 640, 644, 700 et 755.</li>
+              <li>Modification des permissions avec <code>chmod</code>.</li>
+              <li>Gestion des erreurs (fichier inexistant, dossier, entrée invalide).</li>
+              <li>Réaffichage des permissions après modification.</li>
+            </ul>
           </div>
 
           <div class="project-card__block">
@@ -215,22 +282,65 @@
               <li class="chip">Linux</li>
               <li class="chip">chmod</li>
               <li class="chip">stat</li>
+              <li class="chip">Git</li>
+              <li class="chip">GitHub</li>
             </ul>
           </div>
 
           <div class="project-card__block">
-            <h4 class="project-card__label">Ce que je mets en pratique</h4>
+            <h4 class="project-card__label">Compétences mises en pratique</h4>
+            <ul class="project-card__list">
+              <li>Bash : variables, arguments, fonctions, conditions <code>if</code>, structures <code>case</code>, boucles <code>while</code>, <code>read</code> et codes de retour.</li>
+              <li>Permissions Linux et commandes <code>chmod</code> et <code>stat</code>.</li>
+              <li>Validation des entrées et gestion des erreurs.</li>
+              <li>Organisation d'un petit projet et documentation en Markdown.</li>
+              <li>Publication du code et du README sur GitHub.</li>
+            </ul>
+          </div>
+
+          <figure class="project-card__figure">
+            <figcaption class="project-card__figure-caption">
+              Exemple d'utilisation en mode arguments. Sortie du script personnel,
+              avec le nom du fichier et les identifiants remplacés par des valeurs génériques.
+            </figcaption>
+<pre class="terminal" tabindex="0"><code>$ ./perm-manager.sh rapport.txt 644
+=== Linux Permission Manager ===
+Permissions: -rw-r--r--
+Numeric permissions: 664
+Owner: user
+Group: user
+Permission 644 applied successfully.
+Numeric permissions: 644</code></pre>
+          </figure>
+
+          <div class="project-card__block project-card__block--muted">
+            <h4 class="project-card__label">Limites actuelles</h4>
             <p>
-              Script principal <code>perm-manager.sh</code> : variables Bash,
-              conditions <code>if</code>, paramètres de script (<code>$1</code>),
-              tests, et utilisation de commandes Linux dans un script.
+              Seules cinq permissions sont acceptées, un seul fichier est traité à la
+              fois, et le script ne modifie ni le propriétaire ni le groupe. Ces
+              limites sont assumées : le projet reste un support d'apprentissage.
             </p>
+          </div>
+
+          <div class="project-card__block project-card__block--future">
+            <h4 class="project-card__label">Améliorations possibles</h4>
+            <p class="project-card__future-note">
+              Non développées dans la version 1.0 — pistes pour une future version.
+            </p>
+            <ul class="project-card__list">
+              <li>Accepter davantage de permissions.</li>
+              <li>Traiter plusieurs fichiers à la fois.</li>
+              <li>Ajouter les options <code>--help</code> et <code>--version</code>.</li>
+              <li>Demander une confirmation avant modification.</li>
+              <li>Améliorer les tests automatiques et la journalisation des opérations.</li>
+            </ul>
           </div>
 
           <!-- Lien GitHub réel du projet -->
           <a class="btn btn--outline project-card__link" href="https://github.com/Ronus-E/linux-permission-manager"
             target="_blank" rel="noopener noreferrer">
             Voir sur GitHub
+            <span class="visually-hidden">(ouvre un nouvel onglet)</span>
           </a>
         </article>
 
@@ -241,58 +351,116 @@
     </section>
 
     <!-- =========================================================
-         5. PARCOURS D'APPRENTISSAGE — sans dates fictives
+         5. PARCOURS D'APPRENTISSAGE — progression en 7 étapes
+         Le statut de chaque étape est un simple texte : facile à
+         mettre à jour au fur et à mesure.
          ========================================================= -->
     <section id="parcours" class="section section--alt">
       <div class="container">
         <h2 class="section__title">Parcours d'apprentissage</h2>
         <p class="section__subtitle">
-          Une progression personnelle, par thème. Chaque flèche représente une étape
-          franchie — aucune date, aucune expérience professionnelle inventée.
+          Une progression logique, étape par étape. Chaque statut reflète la réalité
+          actuelle et pourra être mis à jour. Aucune date ni expérience inventée.
         </p>
 
-        <div class="journey__grid">
+        <ol class="timeline">
 
-          <div class="journey-card">
-            <h3 class="journey-card__title">Linux</h3>
-            <ul class="journey-card__path">
-              <li>Bases du terminal</li>
-              <li>Fichiers et répertoires</li>
-              <li>Permissions (chmod, stat)</li>
-              <li>Pratique avec Bash</li>
-            </ul>
-          </div>
+          <li class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true">1</div>
+            <div class="timeline__content">
+              <div class="timeline__head">
+                <h3 class="timeline__title">Fondamentaux Linux</h3>
+                <span class="timeline__status timeline__status--practice">Bases étudiées et pratiquées</span>
+              </div>
+              <p class="timeline__text">
+                Navigation, fichiers, dossiers, chemins et permissions.
+              </p>
+            </div>
+          </li>
 
-          <div class="journey-card">
-            <h3 class="journey-card__title">Bash</h3>
-            <ul class="journey-card__path">
-              <li>Syntaxe de base</li>
-              <li>Variables</li>
-              <li>Paramètres de script</li>
-              <li>Conditions (if, tests)</li>
-              <li>Scripts pratiques</li>
-            </ul>
-          </div>
+          <li class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true">2</div>
+            <div class="timeline__content">
+              <div class="timeline__head">
+                <h3 class="timeline__title">Recherche et administration Linux</h3>
+                <span class="timeline__status timeline__status--learning">En cours d'apprentissage</span>
+              </div>
+              <p class="timeline__text">
+                Consolidation de <code>find</code>, recherche selon différents critères
+                et compréhension approfondie des permissions.
+              </p>
+            </div>
+          </li>
 
-          <div class="journey-card">
-            <h3 class="journey-card__title">Git / GitHub</h3>
-            <ul class="journey-card__path">
-              <li>Apprentissage progressif</li>
-              <li>Gestion de projets</li>
-              <li>Publication et documentation</li>
-            </ul>
-          </div>
+          <li class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true">3</div>
+            <div class="timeline__content">
+              <div class="timeline__head">
+                <h3 class="timeline__title">Bash et automatisation</h3>
+                <span class="timeline__status timeline__status--learning">Premier projet terminé, à poursuivre</span>
+              </div>
+              <p class="timeline__text">
+                Apprentissage de Bash à travers des scripts progressifs. Linux
+                Permission Manager v1.0 est un premier projet réalisé dans ce domaine.
+              </p>
+            </div>
+          </li>
 
-          <div class="journey-card">
-            <h3 class="journey-card__title">Cybersécurité</h3>
-            <ul class="journey-card__path">
-              <li>Exploration des fondamentaux</li>
-              <li>Apprentissage progressif</li>
-              <li>Futurs projets — rien de confirmé pour l'instant</li>
-            </ul>
-          </div>
+          <li class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true">4</div>
+            <div class="timeline__content">
+              <div class="timeline__head">
+                <h3 class="timeline__title">Fondamentaux des réseaux</h3>
+                <span class="timeline__status timeline__status--planned">Prévu</span>
+              </div>
+              <p class="timeline__text">
+                Adresses IP, sous-réseaux, protocoles, commutation, routage et diagnostic.
+              </p>
+            </div>
+          </li>
 
-        </div>
+          <li class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true">5</div>
+            <div class="timeline__content">
+              <div class="timeline__head">
+                <h3 class="timeline__title">Analyse réseau</h3>
+                <span class="timeline__status timeline__status--planned">Prévu</span>
+              </div>
+              <p class="timeline__text">
+                Approfondissement des outils de diagnostic et d'analyse du trafic réseau.
+              </p>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true">6</div>
+            <div class="timeline__content">
+              <div class="timeline__head">
+                <h3 class="timeline__title">Fondamentaux de cybersécurité</h3>
+                <span class="timeline__status timeline__status--planned">Objectif de progression</span>
+              </div>
+              <p class="timeline__text">
+                Sécurité des systèmes, gestion des accès, surveillance et principes
+                de défense.
+              </p>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true">7</div>
+            <div class="timeline__content">
+              <div class="timeline__head">
+                <h3 class="timeline__title">Projets pratiques</h3>
+                <span class="timeline__status timeline__status--learning">Progression continue</span>
+              </div>
+              <p class="timeline__text">
+                Développement de projets Linux, Bash, réseau et cybersécurité, avec
+                documentation et publication sur GitHub.
+              </p>
+            </div>
+          </li>
+
+        </ol>
       </div>
     </section>
 
@@ -332,18 +500,59 @@
         <ul class="goals__list">
           <li class="goal">Approfondir Linux, au-delà des bases du terminal</li>
           <li class="goal">Améliorer mes scripts Bash et les rendre utiles</li>
-          <li class="goal">Avancer en programmation, étape par étape</li>
+          <li class="goal">Comprendre les réseaux : adressage, protocoles et diagnostic</li>
+          <li class="goal">Acquérir les fondamentaux de la cybersécurité</li>
           <li class="goal">Mieux utiliser Git et GitHub au quotidien</li>
-          <li class="goal">Explorer les fondamentaux de la cybersécurité</li>
           <li class="goal">Construire des projets un peu plus ambitieux à chaque étape</li>
         </ul>
       </div>
     </section>
 
     <!-- =========================================================
-         8. CONTACT — uniquement les coordonnées réelles
+         8. DOCUMENTATION — notes et fiches techniques publiques
+         Aucun fichier local n'est publié automatiquement.
          ========================================================= -->
-    <section id="contact" class="section">
+    <section id="documentation" class="section">
+      <div class="container">
+        <h2 class="section__title">Documentation</h2>
+        <p class="section__subtitle">
+          Un espace pour mes notes techniques, fiches de révision et comptes rendus
+          de projets. Seuls les documents explicitement destinés à être publics
+          apparaîtront ici — aucune note personnelle n'est publiée.
+        </p>
+
+        <div class="doc__grid">
+
+          <article class="doc-card">
+            <h3 class="doc-card__title">README — Linux Permission Manager</h3>
+            <p class="doc-card__text">
+              Documentation publique du projet : fonctionnalités, prérequis,
+              utilisation, gestion des erreurs, concepts Bash et limites actuelles.
+            </p>
+            <a class="doc-card__link" href="https://github.com/Ronus-E/linux-permission-manager#readme"
+              target="_blank" rel="noopener noreferrer">
+              Consulter la documentation
+              <span class="visually-hidden">(ouvre un nouvel onglet)</span>
+            </a>
+          </article>
+
+          <article class="doc-card doc-card--placeholder">
+            <h3 class="doc-card__title">Fiches et comptes rendus à venir</h3>
+            <p class="doc-card__text">
+              Mes notes de révision Linux, réseaux et cybersécurité, ainsi que les
+              comptes rendus de mes futurs projets, seront ajoutés ici lorsqu'ils
+              seront prêts à être rendus publics.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         9. CONTACT — uniquement les coordonnées réelles
+         ========================================================= -->
+    <section id="contact" class="section section--alt">
       <div class="container contact__inner">
         <h2 class="section__title">Contact</h2>
         <p class="section__subtitle">
@@ -354,6 +563,7 @@
         <address class="contact__links">
           <a class="btn btn--outline" href="https://github.com/Ronus-E" target="_blank" rel="noopener noreferrer">
             GitHub — Ronus-E
+            <span class="visually-hidden">(ouvre un nouvel onglet)</span>
           </a>
           <a class="btn btn--outline" href="mailto:eldockarter@gmail.com">
             Email — eldockarter@gmail.com
@@ -365,12 +575,12 @@
   </main>
 
   <!-- =========================================================
-       9. FOOTER — l'année est injectée par JavaScript
+       10. FOOTER — l'année est injectée par JavaScript
        ========================================================= -->
   <footer class="site-footer">
     <div class="container site-footer__inner">
       <p>&copy; <span id="current-year">2026</span> Ronus Eldo TOLIZARA — Portfolio étudiant.</p>
-      <p class="site-footer__note">Apprentissage en cours.</p>
+      <p class="site-footer__note">Apprentissage en cours : Linux, réseaux et cybersécurité.</p>
     </div>
   </footer>
 
