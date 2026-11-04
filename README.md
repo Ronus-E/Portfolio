@@ -1,139 +1,186 @@
-# Portfolio — Ronus Eldo TOLIZARA
+# Portfolio — Ronus
 
-Portfolio personnel construit avec **HTML5**, **CSS3** et **JavaScript vanilla**,
-sans framework, sans bibliothèque et sans backend.
+Portfolio personnel de **Ronus Eldo TOLIZARA**, étudiant en L2 Génie informatique
+à l'ISSTM de Mahajanga (Madagascar).
 
-> Ce portfolio reflète un apprentissage en cours. Il ne présente aucune
-> expérience professionnelle, aucun diplôme, aucune certification ni aucun
-> projet inventé.
+Construit en **HTML5**, **CSS3** et **JavaScript vanilla**. Aucun framework,
+aucune bibliothèque, aucun backend, aucune police distante. Le site fonctionne
+localement et reste léger sur une machine à 8 Go de RAM.
 
-## Présentation
+> Principe éditorial : ne présenter que des projets réellement présents sur la
+> machine, avec leur état exact. Les projets inachevés ou introuvables sont
+> signalés comme tels. Aucune démonstration, capture ou URL n'est inventée.
 
-Ce site présente, de façon honnête et fidèle, le parcours actuel de
-**Ronus Eldo TOLIZARA**, étudiant en informatique :
+## Aperçu
 
-- ses compétences, classées par domaine et par état réel d'apprentissage
-  (`Pratiqué`, `En apprentissage`, `Prévu`) ;
-- son premier projet personnel terminé : **Linux Permission Manager v1.0** ;
-- son parcours d'apprentissage en sept étapes (Linux, Bash, réseaux,
-  cybersécurité, projets) ;
-- sa méthode d'apprentissage ;
-- ses objectifs ;
-- un espace documentation pour ses futures fiches techniques.
+- Design sombre, sobre et éditorial : échelle typographique resserrée, micro-libellés
+  mono lisibles (≥ 10 px), reliefs internes discrets, aucun effet décoratif gratuit.
+- Interface responsive de 360 px à 1440 px et au-delà.
+- Animations légères, désactivées si `prefers-reduced-motion` est actif.
+- Navigation clavier, lien d'évitement, contrastes vérifiés.
+- Formulaire de contact qui prépare un email via `mailto:` — aucune donnée
+  n'est envoyée à un serveur.
 
-## Objectif du projet
-
-Construire une présence en ligne **crédible et évolutive** : le site grandira au
-même rythme que les compétences de son auteur. Il ne sert pas à se présenter
-comme un professionnel, mais à documenter sérieusement une progression
-d'étudiant.
-
-## Technologies utilisées
-
-| Technologie | Rôle                                             |
-| ----------- | ------------------------------------------------ |
-| HTML5       | Structure et contenu du site                     |
-| CSS3        | Mise en forme, couleurs, responsive              |
-| JavaScript  | Menu mobile, année dynamique, navigation active  |
-
-## Structure du projet
+## Structure
 
 ```text
 portfolio/
-├── index.html    → structure et contenu des sections
-├── style.css     → apparence, disposition, responsive
-├── script.js     → comportements (menu, année, lien actif)
-└── README.md     → cette documentation
+├── index.html    → contenu, structure et métadonnées SEO
+├── style.css     → design, responsive, impression, animations
+├── script.js     → menu, scrollspy, filtres, formulaire, copie
+├── README.md     → cette documentation
+├── robots.txt    → indexation
+└── sitemap.xml   → plan du site pour les moteurs de recherche
 ```
 
-### Sections de la page
+## Sections
 
-1. **Accueil** — présentation et liens rapides.
-2. **À propos** — intérêt pour Linux, réseaux et cybersécurité.
-3. **Compétences** — cartes par domaine, avec les trois états d'apprentissage.
-4. **Projets** — fiche complète de Linux Permission Manager v1.0.
-5. **Parcours** — timeline en sept étapes.
-6. **Méthode** — cycle d'apprentissage.
-7. **Objectifs** — intentions de progression.
-8. **Documentation** — notes et comptes rendus publics à venir.
-9. **Contact** — coordonnées réelles uniquement.
+| # | Section | Contenu |
+| - | ------- | ------- |
+| — | Accueil | Présentation, accroche, terminal de profil, appels à l'action |
+| 01 | À propos | Parcours, méthode, fiche factuelle, principes de travail |
+| 02 | Compétences | Six domaines, trois niveaux honnêtes, sans pourcentages |
+| 03 | Projets | Six fiches, filtres, détails vérifiés, statuts réels |
+| 04 | Parcours | BEPC, DELF B1, baccalauréat, L2, projets, objectifs |
+| 05 | Services | Quatre prestations à niveau étudiant, avec limites explicites |
+| 06 | Contact | Formulaire `mailto`, email réel, GitHub, localisation |
 
-## Lancer le portfolio localement
+## Projets présentés
 
-Aucune installation nécessaire.
+| Projet | Statut affiché | Technologies | Lien |
+| ------ | -------------- | ------------ | ---- |
+| **IANATRA** — gestion scolaire | Pilote avancé, en validation | Python, Flask, SQLite, Jinja2, JS, unittest | Code local, non publié |
+| **JARVIS** — assistant personnel | Opérationnel en local | Node.js natif, API OpenCode, SSE, Piper, faster-whisper | Usage local uniquement |
+| **Linux Permission Manager** | Terminé — v1.0 | Bash, Linux, `chmod`, `stat`, Git | [GitHub](https://github.com/Ronus-E/linux-permission-manager) |
+| **Budget Pro** | À consolider | HTML, CSS, JavaScript, `localStorage` | Source à retrouver |
+| **Mini Adventure** | Prototype jouable | Python, Tkinter | Prototype local |
+| **GMAO** | Non retrouvé sur la machine | — | À documenter |
 
-### Option 1 — Ouvrir le fichier directement
+### Vérifications effectuées sur les projets
+
+- **Linux Permission Manager** : script exécuté sur un fichier de test temporaire
+  (mode 664 → 644), sortie et code de retour vérifiés.
+- **IANATRA** : code Flask/SQLite inspecté, fonctionnalités et rôles recoupés avec
+  le README et les templates. La suite de tests existe mais n'a pas été exécutée
+  dans le cadre de cette refonte.
+- **JARVIS** : arborescence, serveur Node et README inspectés. Le projet tourne
+  sur la machine mais n'a pas été relancé pour ce portfolio.
+- **Budget Pro** : seul un artefact HTML autonome a été retrouvé dans le stockage
+  de VS Code ; le code source n'est pas disponible.
+- **Mini Adventure** : `game.py` lu et fonctionnalités confirmées.
+- **GMAO** : aucune trace du code dans `/home`, `/opt` ou les dossiers de projets.
+
+## Lancer le portfolio sur Kali Linux
+
+Aucune installation, aucun `npm install`, aucun `pip install`.
+
+### Option 1 — Serveur local (recommandé)
 
 ```bash
-xdg-open index.html      # Linux
-open index.html          # macOS
-start index.html         # Windows
+cd /home/ghostroot/Documents/portfolio
+python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-### Option 2 — Serveur local (recommandé)
+Puis ouvrir :
 
-Nécessite Python 3 (souvent déjà installé sur Linux) :
+```text
+http://127.0.0.1:8000
+```
+
+Arrêter le serveur avec `Ctrl+C`.
+
+### Option 2 — Ouvrir directement le fichier
 
 ```bash
-python3 -m http.server 8000
+xdg-open /home/ghostroot/Documents/portfolio/index.html
 ```
 
-Puis ouvrir <http://localhost:8000> dans le navigateur.
+Cette méthode fonctionne, mais un serveur local reproduit mieux les conditions
+réelles (chemins, en-têtes, presse-papiers).
+
+## Tests réalisés le 4 novembre 2026
+
+| Vérification | Résultat |
+| ------------ | -------- |
+| `node --check script.js` | OK |
+| `xmllint --html --noout index.html` | OK |
+| `GET /`, `/style.css`, `/script.js` | HTTP 200 |
+| Ancres internes (`#accueil` … `#contact`) | Toutes résolues |
+| 7 sections attendues | Présentes |
+| Filtres projets | Web = 2, Tous = 6 |
+| Détails techniques | 5 blocs dépliables fonctionnels |
+| Formulaire vide | 3 erreurs affichées et champs marqués |
+| Formulaire valide | Statut `mailto` affiché |
+| Menu mobile | Ouverture, `aria-expanded`, fermeture au clic |
+| Scrollspy | Lien actif correct sur `#projets` |
+| Débordement horizontal | 0 px en 1440, 768, 390 et 360 |
+| Erreurs console sévères | Aucune |
+| `prefers-reduced-motion` | Contenu visible, animations neutralisées |
+| Contrastes mesurés | Texte 17,25:1 · texte doux 10,18:1 · texte discret 5,57:1 |
+
+**Total : 24 vérifications automatisées Selenium/Chromium, 24 réussies.**
+
+### Non testé
+
+- Firefox, Safari et navigateurs mobiles réels.
+- Ouverture effective d'un logiciel de messagerie par `mailto:`.
+- Lecteurs d'écran (NVDA, Orca).
+- Copie presse-papiers en mode headless : refusée par Chromium, le repli affiche
+  un message explicite. Sur `localhost`, l'API Clipboard est normalement
+  disponible dans un navigateur de bureau.
+- Audit Lighthouse : non exécuté.
+
+## Dépendances et limites
+
+- **Aucune dépendance front-end.** Le site est statique.
+- Le formulaire dépend du logiciel de messagerie configuré sur la machine
+  (`mailto:`). Sans client email, il faut copier l'adresse manuellement. Un
+  message très long peut être tronqué par certains clients.
+- Les liens GitHub ouvrent des sites externes.
+- Les projets IANATRA, JARVIS, Budget Pro et Mini Adventure n'ont pas de démo
+  publique : leur code n'est pas publié ou ne peut pas être exposé sans risque.
+- GMAO reste une fiche « à documenter » tant que le code n'est pas retrouvé.
+
+## Publication GitHub Pages
+
+Le site est publié sur <https://ronus-e.github.io/Portfolio/> depuis le dépôt
+<https://github.com/Ronus-E/Portfolio>.
+
+Après validation des modifications :
+
+```bash
+cd /home/ghostroot/Documents/portfolio
+git add index.html style.css script.js README.md robots.txt sitemap.xml
+git commit -m "Refonte du portfolio : projets réels, design responsive et accessibilité"
+git push origin main
+```
+
+GitHub Pages republie automatiquement depuis la branche `main`.
 
 ## Personnalisation
 
-Le contenu principal se trouve dans `index.html`. Chaque section est clairement
-annotée par un commentaire HTML (`<!-- 1. ACCUEIL -->`, `<!-- 2. À PROPOS -->`,
-etc.).
+- **Couleurs et espacements** : variables `:root` en tête de `style.css`.
+- **Contenu** : directement dans `index.html`, sections commentées.
+- **Ajouter un projet** : dupliquer un `<article class="project">`, renseigner
+  `data-tags` (`web`, `system`, `ai`, `game`, `todo`) et le statut.
+- **Ajouter un filtre** : bouton `data-filter="..."` + valeur correspondante
+  dans `data-tags`.
+- **Année du pied de page** : injectée automatiquement par `script.js`.
 
-- Couleurs du site : variables `:root` dans `style.css` (ex. `--accent`).
-- Ajout d'un projet : dupliquer un bloc `<article class="project-card">` dans la
-  section Projets, puis adapter statut, fonctionnalités et lien.
-- Ajout d'une compétence : dupliquer une ligne dans la carte de domaine
-  concernée, avec l'étiquette adaptée (`tag--practice`, `tag--learning` ou
-  `tag--planned`).
-- Mise à jour du parcours : modifier le texte du badge
-  (`timeline__status--practice`, `--learning` ou `--planned`) sur l'étape
-  concernée.
+## Sauvegarde
 
-## Projet principal
+Une copie de l'ancienne version a été créée avant la refonte :
 
-Le dépôt GitHub du projet présenté est :
-[`Ronus-E/linux-permission-manager`](https://github.com/Ronus-E/linux-permission-manager).
-
-Statut affiché sur le portfolio : **Terminé — v1.0**.
-
-## Publication
-
-Le portfolio est publié via **GitHub Pages** :
-
-- site : <https://ronus-e.github.io/Portfolio/>
-- dépôt : <https://github.com/Ronus-E/Portfolio>
-
-Pour republier après une modification :
-
-```bash
-git add .
-git commit -m "Mise à jour du portfolio"
-git push
+```text
+/home/ghostroot/Documents/portfolio-backup-20261104-095145/
 ```
 
-GitHub Pages republie automatiquement le site après un `push` sur `main`.
+## Prochaines étapes prioritaires
 
-## Portfolio évolutif
-
-Ce site est conçu pour évoluer. Quand de nouvelles compétences, de nouveaux
-projets ou de nouvelles étapes d'apprentissage seront réels, il suffira de les
-ajouter dans la section correspondante. Aucune information n'a été ajoutée en
-avance pour gonfler la page.
-
-## Accessibilité et SEO
-
-- `lang="fr"`, meta description, balises sémantiques
-  (`header`, `nav`, `main`, `section`, `footer`, `address`, `figure`, `ol`)
-- Navigation utilisable au clavier (`focus-visible`)
-- Menu mobile piloté par `aria-expanded`
-- Bloc terminal focalisable au clavier (`tabindex="0"`) pour le défilement
-- Attribut `aria-hidden` sur les éléments purement décoratifs
-- Contrastes vérifiés sur fond sombre
-- Respect de `prefers-reduced-motion`
+1. Retrouver ou reconstruire le code source de **Budget Pro**.
+2. Retrouver et documenter **GMAO**, ou retirer sa fiche.
+3. Tester le site sur Firefox et sur un téléphone réel.
+4. Vérifier l'ouverture de `mailto:` avec le client email de la machine.
+5. Envisager un backend de contact uniquement si un hébergement et une protection
+   anti-spam sont disponibles.
+6. Ajouter des captures uniquement si elles proviennent de l'application réelle.

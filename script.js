@@ -1,190 +1,350 @@
 /* =========================================================================
-   PORTFOLIO — SCRIPT JAVASCRIPT
-   Rôle : gérer les comportements du site :
-   1. Menu mobile (ouverture / fermeture)
-   2. Fermeture du menu quand on clique sur un lien
-   3. Fermeture du menu avec la touche Échap
-   4. Mise à jour de l'année dans le footer
-   5. Lien actif dans la navigation selon la section affichée
-   6. Barre de progression de lecture en haut de page
-   7. Révélation douce des sections au défilement (si animations autorisées)
-   Aucune dépendance externe — JavaScript vanilla.
+   PORTFOLIO — Ronus
+   JavaScript vanilla, sans dépendance.
+   Rôles :
+   1. Menu mobile accessible
+   2. En-tête condensé au défilement
+   3. Barre de progression de lecture
+   4. Lien de navigation actif (scrollspy)
+   5. Révélation douce des blocs
+   6. Filtres de projets
+   7. Formulaire de contact (mailto, sans backend)
+   8. Copie de l'adresse email
+   9. Année du pied de page
    ========================================================================= */
 
-// "use strict" active un mode strict : les erreurs courantes
-// (variable non déclarée, par exemple) sont signalées plus tôt.
 "use strict";
 
-/* -------------------------------------------------------------------------
-   1. RÉCUPÉRATION DES ÉLÉMENTS DU DOM
-   querySelector retourne le PREMIER élément correspondant au sélecteur CSS.
-   ------------------------------------------------------------------------- */
-const navToggle = document.querySelector(".nav__toggle");
-const navMenu = document.querySelector("#nav-menu");
-const navLinks = document.querySelectorAll(".nav__link");
-const yearElement = document.querySelector("#current-year");
-
-/* Largeur à partir de laquelle on considère l'écran "mobile"
-   (doit correspondre au media query du CSS : max-width: 720px) */
-const MOBILE_QUERY = window.matchMedia("(max-width: 720px)");
-
-/* -------------------------------------------------------------------------
-   2. MENU MOBILE
-   Le bouton pilote deux choses :
-   - la classe .is-open sur le menu (ouvre/ferme le CSS)
-   - l'attribut aria-expanded (informe les lecteurs d'écran de l'état)
-   ------------------------------------------------------------------------- */
-function toggleMenu() {
-  // classe "is-open" ajoutée si absente, retirée si présente
-  const isOpen = navMenu.classList.toggle("is-open");
-
-  // aria-expanded = "true" ou "false" : état lu par les lecteurs d'écran
-  navToggle.setAttribute("aria-expanded", String(isOpen));
-
-  // aria-label mis à jour : le bouton annonce "Fermer" ou "Ouvrir"
-  navToggle.setAttribute("aria-label", isOpen ? "Fermer le menu" : "Ouvrir le menu");
-}
-
-function closeMenu() {
-  // Si le menu est déjà fermé, on ne fait rien
-  if (!navMenu.classList.contains("is-open")) return;
-
-  navMenu.classList.remove("is-open");
-  navToggle.setAttribute("aria-expanded", "false");
-  navToggle.setAttribute("aria-label", "Ouvrir le menu");
-}
-
-// Événement "click" sur le bouton burger → ouvrir/fermer
-navToggle.addEventListener("click", toggleMenu);
-
-/* -------------------------------------------------------------------------
-   3. FERMETURE DU MENU
-   ------------------------------------------------------------------------- */
-
-// a) Quand on clique sur un lien du menu, il se ferme
-//    (utile sur mobile : on veut voir la section cliquée)
-navLinks.forEach((link) => {
-  link.addEventListener("click", closeMenu);
-});
-
-// b) Touche Échap : raccourci clavier classique pour fermer un menu
-//    keydown = "une touche vient d'être enfoncée"
-document.addEventListener("keydown", (event) => {
-  // event.key contient le nom de la touche pressée
-  if (event.key === "Escape") {
-    closeMenu();
-    // On rend le focus visible sur le bouton pour repartir proprement au clavier
-    navToggle.focus();
-  }
-});
-
-// c) Si on repasse en grand écran (rotation de téléphone, redimensionnement),
-//    on referme proprement le menu mobile.
-//    "change" = événement déclenché quand la media query change d'état.
-MOBILE_QUERY.addEventListener("change", (event) => {
-  if (!event.matches) closeMenu(); // plus en mode mobile → fermer
-});
-
-/* -------------------------------------------------------------------------
-   4. ANNÉE COURTE DANS LE FOOTER
-   new Date() = date et heure actuelles.
-   .getFullYear() = année au format numérique (ex: 2026).
-   On remplace le contenu de #current-year pour ne jamais le mettre à jour
-   manuellement.
-   ------------------------------------------------------------------------- */
-if (yearElement) {
-  // La condition if protège le script : si l'élément n'existe pas dans le
-  // HTML, on n'essaie pas d'écrire dedans (cela provoquerait une erreur).
-  yearElement.textContent = String(new Date().getFullYear());
-}
-
-/* -------------------------------------------------------------------------
-   5. LIEN ACTIF DANS LA NAVIGATION
-   On observe les sections du site ; celle qui occupe le centre de l'écran
-   devient "active" (son lien est surligné en vert).
-
-   IntersectionObserver = API moderne qui surveille la position des éléments
-   par rapport à la fenêtre. Plus performant qu'un écouteur de défilement.
-   ------------------------------------------------------------------------- */
-const sections = document.querySelectorAll("section[id]");
-
-if ("IntersectionObserver" in window && sections.length > 0) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        // entry.isIntersecting : la section est visible à l'écran ?
-        if (!entry.isIntersecting) return;
-
-        const currentId = entry.target.id;
-
-        // On retire la classe "is-active" de tous les liens...
-        navLinks.forEach((link) => link.classList.remove("is-active"));
-
-        // ...puis on l'ajoute uniquement au lien de la section visible
-        const activeLink = document.querySelector(
-          `.nav__link[href="#${currentId}"]`
-        );
-        if (activeLink) activeLink.classList.add("is-active");
-      });
-    },
-    {
-      // Le point de déclenchement : quand la section atteint ~45% de la
-      // hauteur de l'écran, elle devient la section active.
-      rootMargin: "-45% 0px -45% 0px",
-      threshold: 0,
-    }
-  );
-
-  sections.forEach((section) => observer.observe(section));
-}
-
-/* -------------------------------------------------------------------------
-   6. BARRE DE PROGRESSION DE LECTURE
-   Une fine barre en haut de page indique la progression dans le document.
-   L'élément est créé ici (aucune modification du HTML nécessaire).
-   ------------------------------------------------------------------------- */
-const progressBar = document.createElement("div");
-progressBar.className = "scroll-progress";
-progressBar.setAttribute("aria-hidden", "true"); // purement décoratif
-document.body.appendChild(progressBar);
-
-function updateProgress() {
+(() => {
   const root = document.documentElement;
-  const scrollable = root.scrollHeight - root.clientHeight;
-  const ratio = scrollable > 0 ? root.scrollTop / scrollable : 0;
-  progressBar.style.width = (ratio * 100).toFixed(2) + "%";
-}
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-updateProgress();
-window.addEventListener("scroll", updateProgress, { passive: true });
-window.addEventListener("resize", updateProgress);
+  /* -----------------------------------------------------------------------
+     1. MENU MOBILE
+     ----------------------------------------------------------------------- */
+  const navToggle = document.querySelector(".nav__toggle");
+  const navMenu = document.querySelector("#nav-menu");
+  const navLinks = Array.from(document.querySelectorAll(".nav__link"));
 
-/* -------------------------------------------------------------------------
-   7. RÉVÉLATION DOUCE AU DÉFILEMENT
-   Les sections apparaissent légèrement quand elles entrent dans l'écran.
-   Désactivé si l'utilisateur préfère moins d'animations, ou si
-   IntersectionObserver n'est pas disponible.
-   ------------------------------------------------------------------------- */
-const prefersReducedMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-).matches;
+  function setMenuState(open) {
+    if (!navToggle || !navMenu) return;
+    navMenu.classList.toggle("is-open", open);
+    navToggle.setAttribute("aria-expanded", String(open));
+    navToggle.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+  }
 
-if (!prefersReducedMotion && "IntersectionObserver" in window) {
-  const revealTargets = document.querySelectorAll(".hero__inner, .section");
+  function closeMenu() {
+    if (!navMenu || !navMenu.classList.contains("is-open")) return;
+    setMenuState(false);
+  }
 
-  // État initial : éléments légèrement décalés et transparents (voir CSS)
-  revealTargets.forEach((el) => el.classList.add("reveal-init"));
+  if (navToggle && navMenu) {
+    navToggle.addEventListener("click", () => {
+      setMenuState(!navMenu.classList.contains("is-open"));
+    });
 
-  const revealObserver = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("reveal-in");
-        obs.unobserve(entry.target); // on n'anime qu'une seule fois
+    navLinks.forEach((link) => link.addEventListener("click", closeMenu));
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && navMenu.classList.contains("is-open")) {
+        closeMenu();
+        navToggle.focus();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!navMenu.classList.contains("is-open")) return;
+      if (navMenu.contains(event.target) || navToggle.contains(event.target)) return;
+      closeMenu();
+    });
+
+    const mobileQuery = window.matchMedia("(min-width: 721px)");
+    const onViewportChange = (event) => {
+      if (event.matches) closeMenu();
+    };
+    if (typeof mobileQuery.addEventListener === "function") {
+      mobileQuery.addEventListener("change", onViewportChange);
+    } else if (typeof mobileQuery.addListener === "function") {
+      mobileQuery.addListener(onViewportChange);
+    }
+  }
+
+  /* -----------------------------------------------------------------------
+     2. EN-TÊTE CONDENSÉ + 3. PROGRESSION DE LECTURE
+     ----------------------------------------------------------------------- */
+  const header = document.querySelector("#site-header");
+  const progressBar = document.querySelector("#scroll-progress-bar");
+  let frameRequested = false;
+
+  function updateScrollUI() {
+    const scrollTop = window.scrollY || root.scrollTop;
+
+    if (header) {
+      header.classList.toggle("is-scrolled", scrollTop > 8);
+    }
+
+    if (progressBar) {
+      const scrollable = root.scrollHeight - root.clientHeight;
+      const ratio = scrollable > 0 ? scrollTop / scrollable : 0;
+      progressBar.style.width = `${Math.min(100, Math.max(0, ratio * 100))}%`;
+    }
+
+    frameRequested = false;
+  }
+
+  function requestScrollUpdate() {
+    if (frameRequested) return;
+    frameRequested = true;
+    window.requestAnimationFrame(updateScrollUI);
+  }
+
+  updateScrollUI();
+  window.addEventListener("scroll", requestScrollUpdate, { passive: true });
+  window.addEventListener("resize", requestScrollUpdate);
+
+  /* -----------------------------------------------------------------------
+     4. LIEN DE NAVIGATION ACTIF
+     ----------------------------------------------------------------------- */
+  const sections = Array.from(document.querySelectorAll("main section[id]"));
+
+  function setActiveLink(id) {
+    navLinks.forEach((link) => {
+      const isActive = link.getAttribute("href") === `#${id}`;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  if ("IntersectionObserver" in window && sections.length > 0) {
+    const spy = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveLink(entry.target.id);
+        });
+      },
+      { rootMargin: "-42% 0px -52% 0px", threshold: 0 }
+    );
+
+    sections.forEach((section) => spy.observe(section));
+  }
+
+  /* -----------------------------------------------------------------------
+     5. RÉVÉLATION DOUCE
+     ----------------------------------------------------------------------- */
+  const revealTargets = Array.from(document.querySelectorAll("[data-reveal]"));
+
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    revealTargets.forEach((element) => element.classList.add("is-visible"));
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.06 }
+    );
+
+    revealTargets.forEach((element) => revealObserver.observe(element));
+  }
+
+  /* -----------------------------------------------------------------------
+     6. FILTRES DE PROJETS
+     ----------------------------------------------------------------------- */
+  const filterButtons = Array.from(document.querySelectorAll(".filter-btn"));
+  const projectCards = Array.from(document.querySelectorAll("#projects-grid .project"));
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter || "all";
+
+      filterButtons.forEach((item) => {
+        const isActive = item === button;
+        item.classList.toggle("is-active", isActive);
+        item.setAttribute("aria-pressed", String(isActive));
       });
-    },
-    { rootMargin: "0px 0px -8% 0px", threshold: 0.06 }
-  );
 
-  revealTargets.forEach((el) => revealObserver.observe(el));
-}
+      projectCards.forEach((card) => {
+        const tags = (card.dataset.tags || "").split(/\s+/).filter(Boolean);
+        const visible = filter === "all" || tags.includes(filter);
+        card.hidden = !visible;
+      });
+    });
+  });
+
+  /* -----------------------------------------------------------------------
+     7. FORMULAIRE DE CONTACT — préparation d'un email (mailto)
+     ----------------------------------------------------------------------- */
+  const form = document.querySelector("#contact-form");
+  const formStatus = document.querySelector("#form-status");
+  const recipient = "eldockarter@gmail.com";
+
+  function getField(id) {
+    return document.querySelector(`#${id}`);
+  }
+
+  function setFieldError(field, errorElement, message) {
+    if (!field || !errorElement) return;
+    field.setAttribute("aria-invalid", "true");
+    errorElement.textContent = message;
+  }
+
+  function clearFieldError(field, errorElement) {
+    if (!field || !errorElement) return;
+    field.removeAttribute("aria-invalid");
+    errorElement.textContent = "";
+  }
+
+  if (form) {
+    const nameInput = getField("name");
+    const emailInput = getField("email");
+    const subjectInput = getField("subject");
+    const messageInput = getField("message");
+
+    const nameError = getField("name-error");
+    const emailError = getField("email-error");
+    const messageError = getField("message-error");
+
+    const fields = [
+      [nameInput, nameError],
+      [emailInput, emailError],
+      [messageInput, messageError],
+    ];
+
+    fields.forEach(([field, errorElement]) => {
+      if (!field) return;
+      field.addEventListener("input", () => clearFieldError(field, errorElement));
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      let firstInvalid = null;
+      const name = nameInput ? nameInput.value.trim() : "";
+      const email = emailInput ? emailInput.value.trim() : "";
+      const message = messageInput ? messageInput.value.trim() : "";
+      const subject = subjectInput ? subjectInput.value : "Message depuis le portfolio";
+
+      if (name.length < 2) {
+        setFieldError(nameInput, nameError, "Indiquez au moins deux caractères.");
+        firstInvalid = firstInvalid || nameInput;
+      } else {
+        clearFieldError(nameInput, nameError);
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+      if (!emailPattern.test(email)) {
+        setFieldError(emailInput, emailError, "Indiquez une adresse email valide.");
+        firstInvalid = firstInvalid || emailInput;
+      } else {
+        clearFieldError(emailInput, emailError);
+      }
+
+      if (message.length < 10) {
+        setFieldError(messageInput, messageError, "Écrivez au moins dix caractères.");
+        firstInvalid = firstInvalid || messageInput;
+      } else {
+        clearFieldError(messageInput, messageError);
+      }
+
+      if (firstInvalid) {
+        if (formStatus) {
+          formStatus.textContent = "Le formulaire contient une erreur. Vérifiez les champs signalés.";
+        }
+        firstInvalid.focus();
+        return;
+      }
+
+      const subjectLine = `[Portfolio] ${subject} — ${name}`;
+      const bodyLines = [
+        `Nom : ${name}`,
+        `Email : ${email}`,
+        "",
+        message,
+        "",
+        "—",
+        "Message préparé depuis le portfolio de Ronus.",
+      ];
+
+      const mailto =
+        `mailto:${recipient}` +
+        `?subject=${encodeURIComponent(subjectLine)}` +
+        `&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+
+      if (formStatus) {
+        formStatus.textContent =
+          "Votre logiciel de messagerie va s'ouvrir avec le message prérempli. Sinon, copiez l'adresse email.";
+      }
+
+      window.location.href = mailto;
+    });
+  }
+
+  /* -----------------------------------------------------------------------
+     8. COPIE DE L'ADRESSE EMAIL
+     ----------------------------------------------------------------------- */
+  const copyButtons = Array.from(document.querySelectorAll("[data-copy]"));
+  const copyStatus = document.querySelector("#copy-status");
+
+  function legacyCopy(text) {
+    const helper = document.createElement("textarea");
+    helper.value = text;
+    helper.setAttribute("readonly", "");
+    helper.style.position = "fixed";
+    helper.style.opacity = "0";
+    document.body.appendChild(helper);
+    helper.select();
+    let succeeded = false;
+    try {
+      succeeded = document.execCommand("copy");
+    } catch (error) {
+      succeeded = false;
+    }
+    document.body.removeChild(helper);
+    return succeeded;
+  }
+
+  copyButtons.forEach((button) => {
+    button.addEventListener("click", async () => {
+      const text = button.dataset.copy || "";
+      if (!text) return;
+
+      let copied = false;
+
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+        try {
+          await navigator.clipboard.writeText(text);
+          copied = true;
+        } catch (error) {
+          copied = legacyCopy(text);
+        }
+      } else {
+        copied = legacyCopy(text);
+      }
+
+      if (copyStatus) {
+        copyStatus.textContent = copied
+          ? "Adresse copiée dans le presse-papiers."
+          : "Copie automatique impossible — sélectionnez l'adresse manuellement.";
+      }
+
+      window.setTimeout(() => {
+        if (copyStatus) copyStatus.textContent = "";
+      }, 3200);
+    });
+  });
+
+  /* -----------------------------------------------------------------------
+     9. ANNÉE DU PIED DE PAGE
+     ----------------------------------------------------------------------- */
+  const yearElement = document.querySelector("#current-year");
+  if (yearElement) {
+    yearElement.textContent = String(new Date().getFullYear());
+  }
+})();
