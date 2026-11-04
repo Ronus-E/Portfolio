@@ -144,6 +144,7 @@ linux · bash · python · web · réseaux · sécurité
 <span class="t-prompt">$</span> ls projets/
 IANATRA/   JARVIS/   perm-manager/
 budget-pro/   mini-adventure/
+gmao/   gestion-taches/
 
 <span class="t-prompt">$</span> systemctl status apprentissage
 <span class="t-ok">●</span> active (learning) — progression continue<span class="t-cursor" aria-hidden="true"></span></code></pre>
@@ -373,8 +374,9 @@ budget-pro/   mini-adventure/
           <div>
             <h2 class="section__title">Des projets réels,<br>avec leurs limites.</h2>
             <p class="section__intro">
-              Inventaire vérifié sur la machine le 4 novembre 2026. Chaque fiche indique
-              l'état réel, les technologies retrouvées et ce qui reste à faire.
+              Inventaire vérifié le 4 novembre 2026 : projets inspectés sur ma machine et
+              dépôts GitHub consultés. Chaque fiche indique l'état réel, les technologies
+              retrouvées et ce qui reste à faire.
             </p>
           </div>
         </div>
@@ -387,6 +389,7 @@ budget-pro/   mini-adventure/
             <button class="filter-btn" type="button" data-filter="system" aria-pressed="false">Système</button>
             <button class="filter-btn" type="button" data-filter="ai" aria-pressed="false">IA</button>
             <button class="filter-btn" type="button" data-filter="game" aria-pressed="false">Jeu</button>
+            <button class="filter-btn" type="button" data-filter="team" aria-pressed="false">Équipe</button>
             <button class="filter-btn" type="button" data-filter="todo" aria-pressed="false">À compléter</button>
           </div>
         </div>
@@ -621,22 +624,102 @@ budget-pro/   mini-adventure/
           </article>
 
           <!-- GMAO -->
-          <article class="project project--wide project--muted" data-tags="todo" data-reveal>
+          <article class="project project--wide" data-tags="system team" data-reveal>
             <div class="project__top">
-              <p class="project__kind">06 · Projet à documenter</p>
-              <span class="status status--todo"><span class="status__dot" aria-hidden="true"></span>Non retrouvé sur la machine</span>
+              <p class="project__kind">06 · Application desktop</p>
+              <span class="status status--progress"><span class="status__dot" aria-hidden="true"></span>Projet d'études — dépôt public</span>
             </div>
 
             <h3 class="project__title">GMAO — Gestion de maintenance</h3>
             <p class="project__desc">
-              Projet mentionné dans mon parcours, mais absent de l'espace de travail au moment
-              de la refonte. Aucune fonctionnalité, technologie ou capture n'est présentée tant
-              que le code n'a pas été retrouvé et vérifié.
+              Application de bureau en Python pour la gestion du matériel d'un service :
+              inventaire des équipements, demandes d'intervention, bons de travail,
+              techniciens et impression des documents. Interface sombre construite avec
+              CustomTkinter, données locales dans une base SQLite. Projet d'études mené en
+              équipe de 5 personnes (Groupe 02).
             </p>
 
+            <ul class="chips" aria-label="Technologies utilisées">
+              <li class="chip chip--accent">Python</li>
+              <li class="chip">CustomTkinter</li>
+              <li class="chip">SQLite</li>
+              <li class="chip">Git</li>
+            </ul>
+
+            <details class="project__details">
+              <summary>Mes contributions dans l'équipe de 5</summary>
+              <div class="project__details-body">
+                <ul class="check-list">
+                  <li>Écran Matériels : liste et ajout des équipements (<code>materiels.py</code>, <code>ajouter.py</code>).</li>
+                  <li>Gestion des techniciens (<code>techniciens.py</code>).</li>
+                  <li>Couche base de données : schéma SQLite et modèles (<code>database.py</code>, <code>models.py</code>), avec tables matériels, demandes, techniciens et bons de travail.</li>
+                  <li>Impression et sortie des documents (<code>impression.py</code>).</li>
+                </ul>
+                <p class="project__note">
+                  <strong>Statut honnête :</strong> projet d'équipe, pas un travail individuel.
+                  Le dépôt d'origine appartient à l'équipe (<code>FoxIngenious/GMAO_App</code>) ;
+                  le lien ci-dessous pointe vers mon fork. Application de bureau locale, sans
+                  démonstration web, et non relancée dans le cadre de ce portfolio.
+                </p>
+              </div>
+            </details>
+
             <div class="project__foot">
-              <span class="project__muted">À compléter avant publication</span>
-              <span class="project__meta">Statut : inconnu</span>
+              <a class="project__link" href="https://github.com/Ronus-E/GMAO_App"
+                target="_blank" rel="noopener noreferrer">
+                Code sur GitHub <span aria-hidden="true">↗</span>
+                <span class="visually-hidden">(ouvre un nouvel onglet)</span>
+              </a>
+              <span class="project__meta">Python · CustomTkinter</span>
+            </div>
+          </article>
+
+          <!-- GESTION DE TÂCHES -->
+          <article class="project" data-tags="system team" data-reveal>
+            <div class="project__top">
+              <p class="project__kind">07 · Application desktop</p>
+              <span class="status status--warn"><span class="status__dot" aria-hidden="true"></span>Dépôt privé — accès sur demande</span>
+            </div>
+
+            <h3 class="project__title">Gestion de tâches</h3>
+            <p class="project__desc">
+              Application de bureau en Python pour organiser et suivre des tâches, développée
+              en équipe de 12 personnes dans le cadre de ma formation. L'interface repose sur
+              CustomTkinter. Le dépôt est privé : cette fiche décrit le cadre du projet et la
+              stack confirmée, sans détail de code revendiqué.
+            </p>
+
+            <ul class="chips" aria-label="Technologies utilisées">
+              <li class="chip chip--accent">Python</li>
+              <li class="chip">CustomTkinter</li>
+              <li class="chip">Travail en équipe (12)</li>
+            </ul>
+
+            <details class="project__details">
+              <summary>Cadre du projet</summary>
+              <div class="project__details-body">
+                <ul class="check-list">
+                  <li>Projet d'études mené en équipe de 12 personnes.</li>
+                  <li>Application desktop en Python, interface CustomTkinter.</li>
+                  <li>Organisation en modules et travail collaboratif sur un dépôt Git partagé.</li>
+                  <li>Répartition des écrans et des fonctionnalités entre les membres de l'équipe.</li>
+                </ul>
+                <p class="project__note">
+                  <strong>Statut honnête :</strong> le dépôt n'est pas accessible publiquement
+                  (il répond 404 sans authentification). Aucune capture, aucun extrait de code
+                  et aucune métrique ne sont publiés ici ; le lien est fourni pour les personnes
+                  autorisées.
+                </p>
+              </div>
+            </details>
+
+            <div class="project__foot">
+              <a class="project__link" href="https://github.com/FoxIngenious/Gestion_de_tache"
+                target="_blank" rel="noopener noreferrer">
+                Dépôt privé — accès sur demande <span aria-hidden="true">↗</span>
+                <span class="visually-hidden">(ouvre un nouvel onglet)</span>
+              </a>
+              <span class="project__meta">Python · CustomTkinter</span>
             </div>
           </article>
 

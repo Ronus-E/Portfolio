@@ -8,8 +8,9 @@ aucune bibliothèque, aucun backend, aucune police distante. Le site fonctionne
 localement et reste léger sur une machine à 8 Go de RAM.
 
 > Principe éditorial : ne présenter que des projets réellement présents sur la
-> machine, avec leur état exact. Les projets inachevés ou introuvables sont
-> signalés comme tels. Aucune démonstration, capture ou URL n'est inventée.
+> machine ou vérifiables sur un dépôt GitHub, avec leur état exact. Les projets
+> inachevés, privés ou introuvables sont signalés comme tels. Aucune
+> démonstration, capture ou URL n'est inventée.
 
 ## Aperçu
 
@@ -40,7 +41,7 @@ portfolio/
 | — | Accueil | Présentation, accroche, terminal de profil, appels à l'action |
 | 01 | À propos | Parcours, méthode, fiche factuelle, principes de travail |
 | 02 | Compétences | Six domaines, trois niveaux honnêtes, sans pourcentages |
-| 03 | Projets | Six fiches, filtres, détails vérifiés, statuts réels |
+| 03 | Projets | Sept fiches, filtres, détails vérifiés, statuts réels |
 | 04 | Parcours | BEPC, DELF B1, baccalauréat, L2, projets, objectifs |
 | 05 | Services | Quatre prestations à niveau étudiant, avec limites explicites |
 | 06 | Contact | Formulaire `mailto`, email réel, GitHub, localisation |
@@ -54,7 +55,8 @@ portfolio/
 | **Linux Permission Manager** | Terminé — v1.0 | Bash, Linux, `chmod`, `stat`, Git | [GitHub](https://github.com/Ronus-E/linux-permission-manager) |
 | **Budget Pro** | À consolider | HTML, CSS, JavaScript, `localStorage` | Source à retrouver |
 | **Mini Adventure** | Prototype jouable | Python, Tkinter | Prototype local |
-| **GMAO** | Non retrouvé sur la machine | — | À documenter |
+| **GMAO** — gestion de maintenance | Projet d'études, dépôt public | Python, CustomTkinter, SQLite, Git | [GitHub](https://github.com/Ronus-E/GMAO_App) |
+| **Gestion de tâches** | Dépôt privé, accès sur demande | Python, CustomTkinter | [GitHub (privé)](https://github.com/FoxIngenious/Gestion_de_tache) |
 
 ### Vérifications effectuées sur les projets
 
@@ -68,7 +70,14 @@ portfolio/
 - **Budget Pro** : seul un artefact HTML autonome a été retrouvé dans le stockage
   de VS Code ; le code source n'est pas disponible.
 - **Mini Adventure** : `game.py` lu et fonctionnalités confirmées.
-- **GMAO** : aucune trace du code dans `/home`, `/opt` ou les dossiers de projets.
+- **GMAO** : dépôt public `Ronus-E/GMAO_App` (fork de `FoxIngenious/GMAO_App`)
+  inspecté via l'API GitHub le 4 novembre 2026 — branche `master`, Python,
+  `requirements.txt` = `customtkinter`, modules `materiels`, `ajouter`,
+  `techniciens`, `database`, `models`, `impression`, `demandes_intervention`,
+  `bons_travail`. Application non relancée localement.
+- **Gestion de tâches** : dépôt `FoxIngenious/Gestion_de_tache` inaccessible
+  publiquement (réponse 404 via l'API GitHub). Seul le cadre est présenté :
+  équipe de 12, Python, CustomTkinter. Aucun code, aucune capture.
 
 ## Lancer le portfolio sur Kali Linux
 
@@ -107,8 +116,8 @@ réelles (chemins, en-têtes, presse-papiers).
 | `GET /`, `/style.css`, `/script.js` | HTTP 200 |
 | Ancres internes (`#accueil` … `#contact`) | Toutes résolues |
 | 7 sections attendues | Présentes |
-| Filtres projets | Web = 2, Tous = 6 |
-| Détails techniques | 5 blocs dépliables fonctionnels |
+| Filtres projets | Web = 2, Équipe = 2, Tous = 7 |
+| Détails techniques | 7 blocs dépliables fonctionnels |
 | Formulaire vide | 3 erreurs affichées et champs marqués |
 | Formulaire valide | Statut `mailto` affiché |
 | Menu mobile | Ouverture, `aria-expanded`, fermeture au clic |
@@ -139,7 +148,10 @@ réelles (chemins, en-têtes, presse-papiers).
 - Les liens GitHub ouvrent des sites externes.
 - Les projets IANATRA, JARVIS, Budget Pro et Mini Adventure n'ont pas de démo
   publique : leur code n'est pas publié ou ne peut pas être exposé sans risque.
-- GMAO reste une fiche « à documenter » tant que le code n'est pas retrouvé.
+- GMAO et Gestion de tâches sont des applications de bureau : elles se lancent
+  avec `python main.py` et ne peuvent pas être démontrées dans un navigateur.
+- Gestion de tâches pointe vers un dépôt privé : le lien ne s'ouvre que pour les
+  comptes autorisés. La fiche le dit explicitement.
 
 ## Publication GitHub Pages
 
@@ -162,7 +174,7 @@ GitHub Pages republie automatiquement depuis la branche `main`.
 - **Couleurs et espacements** : variables `:root` en tête de `style.css`.
 - **Contenu** : directement dans `index.html`, sections commentées.
 - **Ajouter un projet** : dupliquer un `<article class="project">`, renseigner
-  `data-tags` (`web`, `system`, `ai`, `game`, `todo`) et le statut.
+  `data-tags` (`web`, `system`, `ai`, `game`, `team`, `todo`) et le statut.
 - **Ajouter un filtre** : bouton `data-filter="..."` + valeur correspondante
   dans `data-tags`.
 - **Année du pied de page** : injectée automatiquement par `script.js`.
@@ -178,9 +190,10 @@ Une copie de l'ancienne version a été créée avant la refonte :
 ## Prochaines étapes prioritaires
 
 1. Retrouver ou reconstruire le code source de **Budget Pro**.
-2. Retrouver et documenter **GMAO**, ou retirer sa fiche.
-3. Tester le site sur Firefox et sur un téléphone réel.
-4. Vérifier l'ouverture de `mailto:` avec le client email de la machine.
-5. Envisager un backend de contact uniquement si un hébergement et une protection
+2. Ajouter un extrait de code ou une capture de **GMAO** depuis l'application réelle.
+3. Demander l'accès à **Gestion_de_taches** ou publier un dépôt public si l'équipe accepte.
+4. Tester le site sur Firefox et sur un téléphone réel.
+5. Vérifier l'ouverture de `mailto:` avec le client email de la machine.
+6. Envisager un backend de contact uniquement si un hébergement et une protection
    anti-spam sont disponibles.
-6. Ajouter des captures uniquement si elles proviennent de l'application réelle.
+7. Ajouter des captures uniquement si elles proviennent de l'application réelle.
