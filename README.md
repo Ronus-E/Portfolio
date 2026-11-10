@@ -12,12 +12,15 @@ localement et reste léger sur une machine à 8 Go de RAM.
 > inachevés, privés ou introuvables sont signalés comme tels. Aucune
 > démonstration, capture ou URL n'est inventée.
 
-## Aperçu
+## Direction visuelle
 
-- Design sombre, sobre et éditorial : échelle typographique resserrée, micro-libellés
-  mono lisibles (≥ 10 px), reliefs internes discrets, aucun effet décoratif gratuit.
+- Dossier technique sombre, accent cuivre et teal mesuré, trame discrète.
+- Typographie locale : **Lato** pour le texte, **Fira Code** pour les libellés
+  techniques, accent serif italique pour les mots clés.
+- Hero asymétrique avec panneau de profil, schéma des domaines et heure locale.
+- Animations courtes : révélation au défilement, barre de progression, pulsation
+  des statuts. Tout est neutralisé si `prefers-reduced-motion` est actif.
 - Interface responsive de 360 px à 1440 px et au-delà.
-- Animations légères, désactivées si `prefers-reduced-motion` est actif.
 - Navigation clavier, lien d'évitement, contrastes vérifiés.
 - Formulaire de contact qui prépare un email via `mailto:` — aucune donnée
   n'est envoyée à un serveur.
@@ -28,7 +31,7 @@ localement et reste léger sur une machine à 8 Go de RAM.
 portfolio/
 ├── index.html    → contenu, structure et métadonnées SEO
 ├── style.css     → design, responsive, impression, animations
-├── script.js     → menu, scrollspy, filtres, formulaire, copie
+├── script.js     → menu, scrollspy, filtres, formulaire, copie, horloge
 ├── README.md     → cette documentation
 ├── robots.txt    → indexation
 └── sitemap.xml   → plan du site pour les moteurs de recherche
@@ -38,42 +41,50 @@ portfolio/
 
 | # | Section | Contenu |
 | - | ------- | ------- |
-| — | Accueil | Présentation, accroche, terminal de profil, appels à l'action |
+| — | Accueil | Présentation, accroche, panneau de profil, schéma des domaines |
 | 01 | À propos | Parcours, méthode, fiche factuelle, principes de travail |
 | 02 | Compétences | Six domaines, trois niveaux honnêtes, sans pourcentages |
-| 03 | Projets | Six fiches, filtres, détails vérifiés, statuts réels |
-| 04 | Parcours | BEPC, DELF B1, baccalauréat, L2, projets, objectifs |
-| 05 | Services | Quatre prestations à niveau étudiant, avec limites explicites |
-| 06 | Contact | Formulaire `mailto`, email réel, GitHub, localisation |
+| 03 | Projets | Huit fiches, filtres, détails vérifiés, statuts réels |
+| 04 | Parcours | BEPC, DELF B1, baccalauréat, L2, projets, limites assumées |
+| 05 | Objectifs | Cap 2026–2027, 2027–2029 et 2029+, cadre des missions |
+| 06 | Contact | Formulaire `mailto`, email, GitHub, disponibilité |
 
 ## Projets présentés
 
 | Projet | Statut affiché | Technologies | Lien |
 | ------ | -------------- | ------------ | ---- |
+| **Linux Permission Manager** | Terminé — v1.0 | Bash, Linux, `chmod`, `stat`, Git | [GitHub](https://github.com/Ronus-E/linux-permission-manager) |
 | **IANATRA** — gestion scolaire | Pilote avancé, en validation | Python, Flask, SQLite, Jinja2, JS, unittest | Code local, non publié |
 | **JARVIS** — assistant personnel | Opérationnel en local | Node.js natif, API OpenCode, SSE, Piper, faster-whisper | Usage local uniquement |
-| **Linux Permission Manager** | Terminé — v1.0 | Bash, Linux, `chmod`, `stat`, Git | [GitHub](https://github.com/Ronus-E/linux-permission-manager) |
-| **Budget Pro** | À consolider | HTML, CSS, JavaScript, `localStorage` | Source à retrouver |
-| **Mini Adventure** | Prototype jouable | Python, Tkinter | Prototype local |
+| **Laboratoires Linux** | Pratique régulière | Kali Linux, permissions, processus, Bash | Travaux locaux |
+| **Analyse réseau** | En apprentissage | Wireshark, Packet Tracer, TCP/IP, IPv4 | Captures non publiées |
+| **Mini Adventure** | Prototype jouable | Python, Tkinter, Canvas | Prototype local |
 | **GMAO** — gestion de maintenance | Projet d'études, dépôt public | Python, CustomTkinter, SQLite, Git | [GitHub](https://github.com/Ronus-E/GMAO_App) |
+| **Budget Pro** | À consolider | HTML, CSS, JavaScript, `localStorage` | Source à retrouver |
 
 ### Vérifications effectuées sur les projets
 
-- **Linux Permission Manager** : script exécuté sur un fichier de test temporaire
-  (mode 664 → 644), sortie et code de retour vérifiés.
+- **Linux Permission Manager** : script relu et exécuté sur un fichier de test
+  temporaire (mode 664 → 640), sortie et code de retour vérifiés. Le bloc de
+  code affiché dans la fiche reprend la sortie réelle du script.
 - **IANATRA** : code Flask/SQLite inspecté, fonctionnalités et rôles recoupés avec
-  le README et les templates. La suite de tests existe mais n'a pas été exécutée
+  les README et les templates. La suite de tests existe mais n'a pas été exécutée
   dans le cadre de cette refonte.
 - **JARVIS** : arborescence, serveur Node et README inspectés. Le projet tourne
   sur la machine mais n'a pas été relancé pour ce portfolio.
-- **Budget Pro** : seul un artefact HTML autonome a été retrouvé dans le stockage
-  de VS Code ; le code source n'est pas disponible.
+- **Laboratoires Linux** : exercices et notes présents dans
+  `/home/ghostroot/CyberLab/01_Linux/`. Aucun dépôt public.
+- **Analyse réseau** : deux simulations Packet Tracer conservées
+  (`First-simul.pkt`, `second-simul.pkt`) et guide Wireshark débutant consulté.
+  Aucune capture `.pcap` n'est publiée.
 - **Mini Adventure** : `game.py` lu et fonctionnalités confirmées.
 - **GMAO** : dépôt public `Ronus-E/GMAO_App` (fork de `FoxIngenious/GMAO_App`)
   inspecté via l'API GitHub le 4 novembre 2026 — branche `master`, Python,
   `requirements.txt` = `customtkinter`, modules `materiels`, `ajouter`,
   `techniciens`, `database`, `models`, `impression`, `demandes_intervention`,
   `bons_travail`. Application non relancée localement.
+- **Budget Pro** : seul un artefact HTML autonome a été retrouvé dans le stockage
+  de VS Code ; le code source n'est pas disponible.
 
 ## Lancer le portfolio sur Kali Linux
 
@@ -103,47 +114,58 @@ xdg-open /home/ghostroot/Documents/portfolio/index.html
 Cette méthode fonctionne, mais un serveur local reproduit mieux les conditions
 réelles (chemins, en-têtes, presse-papiers).
 
-## Tests réalisés le 4 novembre 2026
+## Tests réalisés le 10 novembre 2026
 
 | Vérification | Résultat |
 | ------------ | -------- |
 | `node --check script.js` | OK |
-| `xmllint --html --noout index.html` | OK |
+| Analyse HTML5 (`html5lib`) | 0 erreur |
+| Identifiants HTML dupliqués | Aucun |
 | `GET /`, `/style.css`, `/script.js` | HTTP 200 |
 | Ancres internes (`#accueil` … `#contact`) | Toutes résolues |
-| 7 sections attendues | Présentes |
-| Filtres projets | Web = 2, Équipe = 1, Tous = 6 |
-| Détails techniques | 6 blocs dépliables fonctionnels |
+| 7 sections attendues | Présentes, dans l'ordre |
+| Projets affichés | 8 |
+| Filtre « Réseau » | 1 résultat correct |
+| Détails techniques | Blocs dépliables fonctionnels |
 | Formulaire vide | 3 erreurs affichées et champs marqués |
-| Formulaire valide | Statut `mailto` affiché |
-| Menu mobile | Ouverture, `aria-expanded`, fermeture au clic |
-| Scrollspy | Lien actif correct sur `#projets` |
-| Débordement horizontal | 0 px en 1440, 768, 390 et 360 |
-| Erreurs console sévères | Aucune |
-| `prefers-reduced-motion` | Contenu visible, animations neutralisées |
-| Contrastes mesurés | Texte 17,25:1 · texte doux 10,18:1 · texte discret 5,57:1 |
+| Formulaire valide | Statut `mailto` affiché, champs valides |
+| Menu mobile | Ouverture, `aria-expanded`, fermeture au clic et par Échap |
+| Scrollspy | `Projets` puis `Objectifs` correctement actifs |
+| Horloge locale | `Mahajanga · HH:MM UTC+3` |
+| Débordement horizontal | 0 px en 1440, 1280, 1024, 920, 780, 768, 720, 600, 460, 390 et 360 |
+| Contrastes mesurés | Texte 17,71:1 · texte doux 9,45:1 · texte discret 5,04:1 · méta 4,87:1 |
+| `prefers-reduced-motion` | Contenu visible, défilement instantané |
+| Champs sans label | Aucun |
+| Liens vides | Aucun |
+| Liens `target="_blank"` sans `noopener` | Aucun |
+| Un seul `h1` | Oui |
+| Firefox 153.4 ESR | Chargement, 7 sections, 0 débordement en 1440 et 390 |
 
-**Total : 24 vérifications automatisées Selenium/Chromium, 24 réussies.**
+**Total : 24 vérifications automatisées Selenium/Chromium et Firefox, 24 réussies.**
 
 ### Non testé
 
-- Firefox, Safari et navigateurs mobiles réels.
+- Contrôle visuel humain des captures (le rendu a été mesuré, pas jugé à l'œil).
+- Safari et navigateurs mobiles réels.
 - Ouverture effective d'un logiciel de messagerie par `mailto:`.
 - Lecteurs d'écran (NVDA, Orca).
-- Copie presse-papiers en mode headless : refusée par Chromium, le repli affiche
-  un message explicite. Sur `localhost`, l'API Clipboard est normalement
-  disponible dans un navigateur de bureau.
+- Copie presse-papiers en mode headless : le repli affiche un message explicite.
+  Sur `localhost`, l'API Clipboard est normalement disponible dans un navigateur
+  de bureau.
 - Audit Lighthouse : non exécuté.
 
 ## Dépendances et limites
 
 - **Aucune dépendance front-end.** Le site est statique.
+- Les polices utilisées sont locales, avec des replis système si elles sont
+  absentes (`Lato` → `system-ui`, `Fira Code` → monospace, `C059` → Georgia).
 - Le formulaire dépend du logiciel de messagerie configuré sur la machine
   (`mailto:`). Sans client email, il faut copier l'adresse manuellement. Un
   message très long peut être tronqué par certains clients.
 - Les liens GitHub ouvrent des sites externes.
-- Les projets IANATRA, JARVIS, Budget Pro et Mini Adventure n'ont pas de démo
-  publique : leur code n'est pas publié ou ne peut pas être exposé sans risque.
+- Les projets IANATRA, JARVIS, Budget Pro, Mini Adventure et les laboratoires
+  Linux n'ont pas de démo publique : leur code n'est pas publié ou ne peut pas
+  être exposé sans risque.
 - GMAO est une application de bureau : elle se lance avec `python main.py` et
   ne peut pas être démontrée dans un navigateur.
 
@@ -157,7 +179,7 @@ Après validation des modifications :
 ```bash
 cd /home/ghostroot/Documents/portfolio
 git add index.html style.css script.js README.md robots.txt sitemap.xml
-git commit -m "Refonte du portfolio : projets réels, design responsive et accessibilité"
+git commit -m "Refonte du portfolio : structure en 7 sections, objectifs et projets réels"
 git push origin main
 ```
 
@@ -168,25 +190,32 @@ GitHub Pages republie automatiquement depuis la branche `main`.
 - **Couleurs et espacements** : variables `:root` en tête de `style.css`.
 - **Contenu** : directement dans `index.html`, sections commentées.
 - **Ajouter un projet** : dupliquer un `<article class="project">`, renseigner
-  `data-tags` (`web`, `system`, `ai`, `game`, `team`, `todo`) et le statut.
+  `data-tags` (`system`, `network`, `web`, `python`, `team`, `todo`) et le statut.
 - **Ajouter un filtre** : bouton `data-filter="..."` + valeur correspondante
-  dans `data-tags`.
+  dans `data-tags`, puis mettre à jour le compteur affiché.
 - **Année du pied de page** : injectée automatiquement par `script.js`.
+- **Heure locale** : fuseau `Indian/Antananarivo` dans `script.js`.
 
 ## Sauvegarde
 
-Une copie de l'ancienne version a été créée avant la refonte :
+Deux copies de sécurité existent :
 
 ```text
+/home/ghostroot/Documents/portfolio-backups/20261110-113054/
 /home/ghostroot/Documents/portfolio-backup-20261104-095145/
 ```
 
+La première contient la version présente avant la refonte du 10 novembre 2026.
+La seconde contient la version du 4 novembre 2026.
+
 ## Prochaines étapes prioritaires
 
-1. Retrouver ou reconstruire le code source de **Budget Pro**.
-2. Ajouter un extrait de code ou une capture de **GMAO** depuis l'application réelle.
-3. Tester le site sur Firefox et sur un téléphone réel.
-4. Vérifier l'ouverture de `mailto:` avec le client email de la machine.
-5. Envisager un backend de contact uniquement si un hébergement et une protection
+1. Contrôler visuellement le rendu sur Chromium et Firefox, puis ajuster les
+   espacements si nécessaire.
+2. Retrouver ou reconstruire le code source de **Budget Pro**.
+3. Ajouter un extrait de code ou une capture de **GMAO** depuis l'application réelle.
+4. Tester le site sur un téléphone réel.
+5. Vérifier l'ouverture de `mailto:` avec le client email de la machine.
+6. Envisager un backend de contact uniquement si un hébergement et une protection
    anti-spam sont disponibles.
-6. Ajouter des captures uniquement si elles proviennent de l'application réelle.
+7. Ajouter des captures uniquement si elles proviennent de l'application réelle.

@@ -10,7 +10,8 @@
    6. Filtres de projets
    7. Formulaire de contact (mailto, sans backend)
    8. Copie de l'adresse email
-   9. Année du pied de page
+   9. Heure locale de Mahajanga
+   10. Année du pied de page
    ========================================================================= */
 
 "use strict";
@@ -18,6 +19,10 @@
 (() => {
   const root = document.documentElement;
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* La classe n'est ajoutée que si le script s'exécute : sans JS, tout reste
+     visible. Le CSS neutralise l'effet si l'utilisateur réduit les animations. */
+  root.classList.add("reveal-ready");
 
   /* -----------------------------------------------------------------------
      1. MENU MOBILE
@@ -58,14 +63,14 @@
       closeMenu();
     });
 
-    const mobileQuery = window.matchMedia("(min-width: 721px)");
+    const desktopQuery = window.matchMedia("(min-width: 781px)");
     const onViewportChange = (event) => {
       if (event.matches) closeMenu();
     };
-    if (typeof mobileQuery.addEventListener === "function") {
-      mobileQuery.addEventListener("change", onViewportChange);
-    } else if (typeof mobileQuery.addListener === "function") {
-      mobileQuery.addListener(onViewportChange);
+    if (typeof desktopQuery.addEventListener === "function") {
+      desktopQuery.addEventListener("change", onViewportChange);
+    } else if (typeof desktopQuery.addListener === "function") {
+      desktopQuery.addListener(onViewportChange);
     }
   }
 
@@ -341,7 +346,31 @@
   });
 
   /* -----------------------------------------------------------------------
-     9. ANNÉE DU PIED DE PAGE
+     9. HEURE LOCALE DE MAHAJANGA (UTC+3)
+     ----------------------------------------------------------------------- */
+  const clock = document.querySelector("#local-clock");
+
+  if (clock) {
+    const timeFormat = new Intl.DateTimeFormat("fr-FR", {
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZone: "Indian/Antananarivo",
+    });
+
+    const updateClock = () => {
+      try {
+        clock.textContent = `Mahajanga · ${timeFormat.format(new Date())} UTC+3`;
+      } catch (error) {
+        clock.textContent = "Mahajanga · UTC+3";
+      }
+    };
+
+    updateClock();
+    window.setInterval(updateClock, 30000);
+  }
+
+  /* -----------------------------------------------------------------------
+     10. ANNÉE DU PIED DE PAGE
      ----------------------------------------------------------------------- */
   const yearElement = document.querySelector("#current-year");
   if (yearElement) {
