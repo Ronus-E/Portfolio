@@ -37,6 +37,7 @@ portfolio/
 │   ├── es.js     → dictionnaire espagnol
 │   └── de.js     → dictionnaire allemand
 ├── script.js     → menu, scrollspy, filtres, formulaire, copie, horloge
+├── versionner.sh → pose les empreintes des ressources dans index.html
 ├── README.md     → cette documentation
 ├── robots.txt    → indexation
 └── sitemap.xml   → plan du site pour les moteurs de recherche
@@ -81,6 +82,39 @@ le SEO et la mémorisation s'adaptent automatiquement.
   `?lang=xx` ; le contenu français reste servi par défaut à l'URL canonique.
 - Les traductions sont professionnelles mais n'ont pas été relues par un
   locuteur natif.
+
+## Cache et versions des ressources
+
+GitHub Pages sert les fichiers avec `cache-control: max-age=600`. Sans
+précaution, un navigateur peut donc afficher un `index.html` à jour **avec un
+`i18n.js` périmé** (ou l'inverse) : la page montre alors le bouton de langue
+mais le clic reste sans effet, puisque le balisage et le script ne
+correspondent plus.
+
+`index.html` référence donc chaque ressource avec une empreinte :
+
+```html
+<script src="i18n.js?v=8d38b09a" defer></script>
+```
+
+Ainsi une page fraîche tire toujours des fichiers cohérents avec elle, et une
+page encore en cache continue d'utiliser les siens : le mélange incohérent
+devient impossible.
+
+Après avoir modifié `style.css`, `i18n.js`, `script.js` ou un fichier de
+`i18n/`, il suffit de relancer :
+
+```bash
+./versionner.sh
+```
+
+Le script est idempotent, n'utilise que `md5sum` et `sed`, et ne touche qu'aux
+attributs `href` et `src` de `index.html`. Ce n'est **pas** une étape de
+compilation : le site fonctionne sans lui.
+
+> Si une visite affiche encore une ancienne version, un rechargement forcé
+> (`Ctrl+Shift+R`) suffit : `index.html` lui-même reste en cache jusqu'à
+> dix minutes.
 
 ## Sections
 
