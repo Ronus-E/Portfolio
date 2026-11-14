@@ -1,0 +1,8 @@
+# Sauvegardes locales : jamais publiees sur GitHub.
+# Elles contiennent des copies de travail et alourdissent le depot.
+backups/
+
+# Fichiers d'editeur et systeme
+.DS_Store
+*.swp
+*~

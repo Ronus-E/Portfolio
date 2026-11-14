@@ -359,11 +359,23 @@
   const clock = document.querySelector("#local-clock");
 
   if (clock) {
-    const timeFormat = new Intl.DateTimeFormat("fr-FR", {
-      hour: "2-digit",
-      minute: "2-digit",
-      timeZone: "Indian/Antananarivo",
-    });
+    /* Le format suit la langue active : les codes du moteur (« fr », « en »,
+       « es », « de ») sont des etiquettes BCP 47 valides pour Intl.
+       « Mahajanga » et « UTC+3 » sont des donnees, pas du texte traduisible. */
+    let timeFormat = null;
+
+    const buildFormat = () => {
+      const locale = (window.PortfolioI18N && window.PortfolioI18N.lang) || "fr";
+      try {
+        timeFormat = new Intl.DateTimeFormat(locale, {
+          hour: "2-digit",
+          minute: "2-digit",
+          timeZone: "Indian/Antananarivo",
+        });
+      } catch (error) {
+        timeFormat = null;
+      }
+    };
 
     const updateClock = () => {
       try {
@@ -373,8 +385,14 @@
       }
     };
 
+    buildFormat();
     updateClock();
     window.setInterval(updateClock, 30000);
+
+    document.addEventListener("portfolio:langchange", () => {
+      buildFormat();
+      updateClock();
+    });
   }
 
   /* -----------------------------------------------------------------------
@@ -386,10 +404,11 @@
   }
 
   /* -----------------------------------------------------------------------
-     11. BASCULE DE LANGUE FR / EN
+     11. CHANGEMENT DE LANGUE
      Le remplacement des textes est fait par i18n.js, qui émet l'événement
      « portfolio:langchange ». Ici on ne gère que ce que i18n.js ne peut pas
-     savoir : le libellé du menu mobile et les messages transitoires.
+     savoir : le libellé du menu mobile, les messages transitoires et
+     l'horloge locale (section 9).
      ----------------------------------------------------------------------- */
   const errorIds = ["name-error", "email-error", "message-error"];
   const fieldIds = ["name", "email", "message"];

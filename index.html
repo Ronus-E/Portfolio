@@ -13,6 +13,14 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://ronus-e.github.io/Portfolio/">
 
+  <!-- Versions linguistiques. L'URL porte la langue, comme le moteur i18n
+       (parametre ?lang=). Le francais est la version par defaut. -->
+  <link rel="alternate" hreflang="fr" href="https://ronus-e.github.io/Portfolio/">
+  <link rel="alternate" hreflang="en" href="https://ronus-e.github.io/Portfolio/?lang=en">
+  <link rel="alternate" hreflang="es" href="https://ronus-e.github.io/Portfolio/?lang=es">
+  <link rel="alternate" hreflang="de" href="https://ronus-e.github.io/Portfolio/?lang=de">
+  <link rel="alternate" hreflang="x-default" href="https://ronus-e.github.io/Portfolio/">
+
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR" data-i18n-content="meta.og.locale">
   <meta property="og:site_name" content="Ronus — Portfolio">
@@ -89,11 +97,16 @@
           <li><a class="nav__link nav__link--cta" href="#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
 
-        <div class="lang-switch" role="group" aria-label="Langue du site" data-i18n-aria-label="lang.aria">
-          <button class="lang-switch__btn is-active" type="button" data-lang="fr" aria-pressed="true"
-            lang="fr">FR</button>
-          <button class="lang-switch__btn" type="button" data-lang="en" aria-pressed="false"
-            lang="en">EN</button>
+        <div class="lang-select">
+          <button class="lang-select__toggle" type="button" id="lang-toggle" aria-haspopup="true"
+            aria-expanded="false" aria-controls="lang-menu" aria-label="Langue du site"
+            data-i18n-aria-label="lang.aria">
+            <span class="lang-select__code" data-lang-current>FR</span>
+            <span class="lang-select__chevron" aria-hidden="true"></span>
+          </button>
+          <!-- Les langues proposees sont construites par i18n.js a partir du
+               registre LOCALES : rien a maintenir ici pour en ajouter une. -->
+          <ul class="lang-select__menu" id="lang-menu" role="menu" hidden></ul>
         </div>
       </nav>
     </div>
@@ -1125,7 +1138,13 @@ Group: ghostroot
     </div>
   </footer>
 
+  <!-- Moteur i18n, puis un fichier par langue, puis la logique du site.
+       L'ordre compte : le moteur doit exister avant que les dictionnaires
+       ne s'enregistrent, et script.js doit pouvoir appeler t(). -->
   <script src="i18n.js" defer></script>
+  <script src="i18n/en.js" defer></script>
+  <script src="i18n/es.js" defer></script>
+  <script src="i18n/de.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 

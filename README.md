@@ -29,13 +29,58 @@ localement et reste léger sur une machine à 8 Go de RAM.
 
 ```text
 portfolio/
-├── index.html    → contenu, structure et métadonnées SEO
+├── index.html    → contenu, structure et métadonnées SEO (langue source : français)
 ├── style.css     → design, responsive, impression, animations
+├── i18n.js       → moteur multilingue : registre, bascule, menu, SEO
+├── i18n/
+│   ├── en.js     → dictionnaire anglais
+│   ├── es.js     → dictionnaire espagnol
+│   └── de.js     → dictionnaire allemand
 ├── script.js     → menu, scrollspy, filtres, formulaire, copie, horloge
 ├── README.md     → cette documentation
 ├── robots.txt    → indexation
 └── sitemap.xml   → plan du site pour les moteurs de recherche
 ```
+
+## Multilingue
+
+Le site est disponible en **français**, **anglais**, **espagnol** et **allemand**.
+La bascule est instantanée, sans rechargement ni appel réseau.
+
+- Le **français est la langue source** : elle vit dans le balisage de
+  `index.html`. Aucun contenu français n'est dupliqué dans un dictionnaire.
+- Chaque langue cible est **un fichier** dans `i18n/`, qui ne contient que des
+  données et s'enregistre auprès du moteur :
+  `window.PortfolioI18N.register("<code>", { ... })`.
+- Le **menu déroulant est construit** à partir du registre `LOCALES` de
+  `i18n.js` : rien à maintenir dans `index.html` pour ajouter une langue.
+- Priorité de la langue au démarrage :
+  `?lang=xx` → `localStorage` → langue du navigateur → français.
+- Le titre, la description, les balises `og:*` et le JSON-LD (`inLanguage`)
+  suivent la langue active. L'URL est mise à jour (`?lang=xx`, paramètre retiré
+  pour le français) et `index.html` déclare les balises `hreflang`.
+- Les **noms propres, technologies et noms de projets** ne sont pas traduits.
+- Une clé absente d'une traduction retombe sur le français et déclenche un
+  avertissement en console : jamais de trou dans la page.
+
+### Ajouter une langue
+
+1. `cp i18n/en.js i18n/<code>.js` puis traduire les **valeurs** (jamais les clés).
+2. Ajouter une entrée dans `LOCALES` (`i18n.js`) : code, nom, drapeau,
+   `htmlLang`, `ogLocale`, `dir`.
+3. Ajouter `<script src="i18n/<code>.js" defer></script>` dans `index.html`,
+   **avant** `script.js`.
+
+Aucune autre modification n'est nécessaire : le menu, la détection navigateur,
+le SEO et la mémorisation s'adaptent automatiquement.
+
+### Limites connues
+
+- Le japonais est prévu mais non livré (l'architecture le permet sans refonte).
+- Les moteurs de recherche doivent exécuter JavaScript pour voir les variantes
+  `?lang=xx` ; le contenu français reste servi par défaut à l'URL canonique.
+- Les traductions sont professionnelles mais n'ont pas été relues par un
+  locuteur natif.
 
 ## Sections
 

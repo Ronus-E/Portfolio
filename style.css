@@ -541,45 +541,148 @@ code {
   transform: translateY(-3.75px) rotate(-45deg);
 }
 
-/* --- Commutateur de langue FR / EN --- */
-.lang-switch {
-  display: inline-flex;
-  align-items: center;
+/* --- Selecteur de langue (menu deroulant) --- */
+.lang-select {
+  position: relative;
   flex-shrink: 0;
   margin-left: 14px;
-  padding: 2px;
+}
+
+.lang-select__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px 7px 11px;
   border: 1px solid var(--line-strong);
   border-radius: 3px;
   background: rgba(255, 255, 255, 0.014);
-}
-
-.lang-switch__btn {
-  padding: 6px 9px;
-  border: 0;
-  border-radius: 2px;
-  background: transparent;
   color: var(--dim);
   font-family: var(--mono);
-  font-size: 0.63rem;
+  font-size: 0.64rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   line-height: 1;
-  transition: background-color 0.2s var(--ease), color 0.2s var(--ease),
-    box-shadow 0.2s var(--ease);
+  transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease),
+    color 0.2s var(--ease);
 }
 
-.lang-switch__btn:hover {
+.lang-select__toggle:hover {
+  border-color: var(--line-strong);
   color: var(--ink);
 }
 
-.lang-switch__btn.is-active {
-  background: rgba(232, 167, 101, 0.12);
-  box-shadow: inset 0 0 0 1px rgba(232, 167, 101, 0.28);
+.lang-select.is-open .lang-select__toggle {
+  border-color: rgba(232, 167, 101, 0.5);
+  background: rgba(232, 167, 101, 0.1);
   color: var(--accent);
 }
 
-.lang-switch__btn:focus-visible {
-  outline-offset: 1px;
+/* Chevron dessine en CSS : aucun caractere ni image a charger. */
+.lang-select__chevron {
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s var(--ease), margin-top 0.2s var(--ease);
+}
+
+.lang-select.is-open .lang-select__chevron {
+  margin-top: 3px;
+  transform: rotate(-135deg);
+}
+
+.lang-select__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 120;
+  min-width: 198px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  background: rgba(11, 17, 24, 0.97);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.55);
+  animation: lang-menu-in 0.16s var(--ease);
+}
+
+.lang-select__menu[hidden] {
+  display: none;
+}
+
+@keyframes lang-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lang-select__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--soft);
+  font: inherit;
+  font-size: 0.82rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s var(--ease), color 0.15s var(--ease);
+}
+
+.lang-select__item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--ink);
+}
+
+.lang-select__item.is-active {
+  background: rgba(232, 167, 101, 0.1);
+  color: var(--accent);
+}
+
+.lang-select__flag {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.lang-select__name {
+  flex: 1;
+}
+
+.lang-select__tag {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.lang-select__item.is-active .lang-select__tag {
+  color: var(--accent);
+}
+
+.lang-select__check {
+  width: 11px;
+  color: var(--accent);
+  font-size: 0.72rem;
+  opacity: 0;
+}
+
+.lang-select__item.is-active .lang-select__check {
+  opacity: 1;
 }
 
 /* -------------------------------------------------------------------------
@@ -2184,13 +2287,17 @@ a.contact-link:hover .contact-link__arrow {
     display: flex;
   }
 
-  .lang-switch {
+  .lang-select {
     margin-left: 10px;
   }
 
-  .lang-switch__btn {
-    padding: 6px 8px;
+  .lang-select__toggle {
+    padding: 6px 8px 6px 9px;
     font-size: 0.6rem;
+  }
+
+  .lang-select__menu {
+    min-width: 178px;
   }
 
   .nav__menu {
@@ -2461,6 +2568,7 @@ a.contact-link:hover .contact-link__arrow {
 
 @media print {
   .site-header,
+  .lang-select,
   .scroll-progress,
   .hero__halo,
   .project-filter,
