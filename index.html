@@ -6,18 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#06090d">
 
-  <title>Ronus — Étudiant en génie informatique | Linux, réseaux &amp; cybersécurité</title>
-  <meta name="description"
+  <title data-i18n="meta.title">Ronus — Étudiant en génie informatique | Linux, réseaux &amp; cybersécurité</title>
+  <meta name="description" data-i18n-content="meta.description"
     content="Portfolio de Ronus, étudiant en L2 Génie informatique à l'ISSTM de Mahajanga. Projets réels, laboratoires Linux, réseaux et apprentissage de la cybersécurité, présentés avec leur niveau exact.">
   <meta name="author" content="Ronus Eldo TOLIZARA">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://ronus-e.github.io/Portfolio/">
 
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale" content="fr_FR" data-i18n-content="meta.og.locale">
   <meta property="og:site_name" content="Ronus — Portfolio">
-  <meta property="og:title" content="Ronus — Étudiant en génie informatique">
-  <meta property="og:description"
+  <meta property="og:title" content="Ronus — Étudiant en génie informatique" data-i18n-content="meta.og.title">
+  <meta property="og:description" data-i18n-content="meta.og.description"
     content="Linux, réseaux, Python et fondamentaux de la cybersécurité : un parcours d'apprentissage documenté, des projets testés, des limites assumées.">
   <meta property="og:url" content="https://ronus-e.github.io/Portfolio/">
 
@@ -25,7 +25,7 @@
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2306090d'/%3E%3Crect x='6' y='6' width='52' height='52' rx='8' fill='none' stroke='%2326333f'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' font-family='monospace' font-size='34' font-weight='700' fill='%23e8a765'%3ER%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
 
-  <script type="application/ld+json">
+  <script type="application/ld+json" data-i18n="meta.jsonld">
   {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -53,7 +53,7 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+  <a class="skip-link" href="#contenu" data-i18n="skip">Aller au contenu principal</a>
 
   <div class="scroll-progress" aria-hidden="true">
     <span id="scroll-progress-bar"></span>
@@ -64,7 +64,7 @@
        ========================================================= -->
   <header class="site-header" id="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="#accueil" aria-label="Ronus — retour à l'accueil">
+      <a class="brand" href="#accueil" aria-label="Ronus — retour à l'accueil" data-i18n-aria-label="brand.aria">
         <span class="brand__mark" aria-hidden="true">R</span>
         <span class="brand__text">
           <span class="brand__name">ronus</span>
@@ -72,7 +72,7 @@
         </span>
       </a>
 
-      <nav class="nav" aria-label="Navigation principale">
+      <nav class="nav" aria-label="Navigation principale" data-i18n-aria-label="nav.aria">
         <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu"
           aria-label="Ouvrir le menu">
           <span class="nav__toggle-bar" aria-hidden="true"></span>
@@ -80,14 +80,21 @@
         </button>
 
         <ul class="nav__menu" id="nav-menu">
-          <li><a class="nav__link" href="#accueil">Accueil</a></li>
-          <li><a class="nav__link" href="#apropos">À propos</a></li>
-          <li><a class="nav__link" href="#competences">Compétences</a></li>
-          <li><a class="nav__link" href="#projets">Projets</a></li>
-          <li><a class="nav__link" href="#parcours">Parcours</a></li>
-          <li><a class="nav__link" href="#objectifs">Objectifs</a></li>
-          <li><a class="nav__link nav__link--cta" href="#contact">Contact</a></li>
+          <li><a class="nav__link" href="#accueil" data-i18n="nav.home">Accueil</a></li>
+          <li><a class="nav__link" href="#apropos" data-i18n="nav.about">À propos</a></li>
+          <li><a class="nav__link" href="#competences" data-i18n="nav.skills">Compétences</a></li>
+          <li><a class="nav__link" href="#projets" data-i18n="nav.projects">Projets</a></li>
+          <li><a class="nav__link" href="#parcours" data-i18n="nav.journey">Parcours</a></li>
+          <li><a class="nav__link" href="#objectifs" data-i18n="nav.goals">Objectifs</a></li>
+          <li><a class="nav__link nav__link--cta" href="#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
+
+        <div class="lang-switch" role="group" aria-label="Langue du site" data-i18n-aria-label="lang.aria">
+          <button class="lang-switch__btn is-active" type="button" data-lang="fr" aria-pressed="true"
+            lang="fr">FR</button>
+          <button class="lang-switch__btn" type="button" data-lang="en" aria-pressed="false"
+            lang="en">EN</button>
+        </div>
       </nav>
     </div>
   </header>
@@ -102,17 +109,17 @@
 
       <div class="container hero__grid">
         <div class="hero__copy">
-          <p class="eyebrow">
+          <p class="eyebrow" data-i18n="hero.eyebrow">
             <span class="eyebrow__pulse" aria-hidden="true"></span>
             Ronus · L2 Génie informatique · Mahajanga
           </p>
 
-          <h1 class="hero__title">
+          <h1 class="hero__title" data-i18n="hero.title">
             J'apprends les systèmes.<br>
             Je construis <em>avec méthode.</em>
           </h1>
 
-          <p class="hero__lead">
+          <p class="hero__lead" data-i18n="hero.lead">
             Étudiant en génie informatique à l'<strong>ISSTM de Mahajanga</strong>, je me forme
             sur <strong>Kali Linux</strong> : administration système, scripts Bash, réseaux et
             fondamentaux de la cybersécurité. Les projets présentés ici ont été exécutés, testés
@@ -120,51 +127,51 @@
           </p>
 
           <div class="hero__actions">
-            <a class="btn btn--primary" href="#projets">
+            <a class="btn btn--primary" href="#projets" data-i18n="hero.cta.projects">
               Explorer mes projets
               <span aria-hidden="true">→</span>
             </a>
-            <a class="btn btn--outline" href="#parcours">Lire mon parcours</a>
+            <a class="btn btn--outline" href="#parcours" data-i18n="hero.cta.journey">Lire mon parcours</a>
           </div>
 
-          <ul class="hero__meta" aria-label="Repères">
-            <li><span aria-hidden="true">01</span> Kali Linux au quotidien</li>
-            <li><span aria-hidden="true">02</span> Projets testés localement</li>
-            <li><span aria-hidden="true">03</span> Niveau réel, sans survente</li>
+          <ul class="hero__meta" aria-label="Repères" data-i18n-aria-label="hero.meta.aria">
+            <li data-i18n="hero.meta.1"><span aria-hidden="true">01</span> Kali Linux au quotidien</li>
+            <li data-i18n="hero.meta.2"><span aria-hidden="true">02</span> Projets testés localement</li>
+            <li data-i18n="hero.meta.3"><span aria-hidden="true">03</span> Niveau réel, sans survente</li>
           </ul>
         </div>
 
-        <aside class="profile" aria-label="Résumé du profil">
+        <aside class="profile" aria-label="Résumé du profil" data-i18n-aria-label="profile.aria">
           <div class="profile__bar">
-            <span class="profile__path">dossier / ronus</span>
-            <span class="profile__stamp">MAJ · 11.2026</span>
+            <span class="profile__path" data-i18n="profile.path">dossier / ronus</span>
+            <span class="profile__stamp" data-i18n="profile.stamp">MAJ · 11.2026</span>
           </div>
 
           <dl class="profile__rows">
             <div>
-              <dt>Statut</dt>
-              <dd><span class="dot dot--live" aria-hidden="true"></span>Étudiant — en apprentissage</dd>
+              <dt data-i18n="profile.status">Statut</dt>
+              <dd data-i18n="profile.status.value"><span class="dot dot--live" aria-hidden="true"></span>Étudiant — en apprentissage</dd>
             </div>
             <div>
-              <dt>Formation</dt>
-              <dd>L2 Génie informatique — ISSTM</dd>
+              <dt data-i18n="profile.education">Formation</dt>
+              <dd data-i18n="profile.education.value">L2 Génie informatique — ISSTM</dd>
             </div>
             <div>
-              <dt>Terrain</dt>
-              <dd>Kali Linux · terminal · laboratoire local</dd>
+              <dt data-i18n="profile.hands">Terrain</dt>
+              <dd data-i18n="profile.hands.value">Kali Linux · terminal · laboratoire local</dd>
             </div>
             <div>
-              <dt>Focus</dt>
-              <dd>Linux · réseaux · sécurité défensive</dd>
+              <dt data-i18n="profile.focus">Focus</dt>
+              <dd data-i18n="profile.focus.value">Linux · réseaux · sécurité défensive</dd>
             </div>
             <div>
-              <dt>Heure locale</dt>
+              <dt data-i18n="profile.clock">Heure locale</dt>
               <dd><span id="local-clock">Mahajanga · UTC+3</span></dd>
             </div>
           </dl>
 
           <div class="profile__map">
-            <svg viewBox="0 0 420 190" role="img"
+            <svg viewBox="0 0 420 190" role="img" data-i18n-aria-label="profile.map.aria"
               aria-label="Schéma des quatre domaines de travail : systèmes, code, réseaux et sécurité, reliés au profil">
               <g class="map__links" fill="none" stroke="currentColor" stroke-width="1">
                 <path d="M210 95 C 160 95, 130 64, 88 44" />
@@ -183,10 +190,10 @@
               </g>
               <g class="map__labels" text-anchor="middle">
                 <text x="210" y="99">R</text>
-                <text x="88" y="28">SYSTÈMES</text>
-                <text x="88" y="170">CODE</text>
-                <text x="332" y="28">RÉSEAUX</text>
-                <text x="332" y="170">SÉCURITÉ</text>
+                <text x="88" y="28" data-i18n="map.systems">SYSTÈMES</text>
+                <text x="88" y="170" data-i18n="map.code">CODE</text>
+                <text x="332" y="28" data-i18n="map.network">RÉSEAUX</text>
+                <text x="332" y="170" data-i18n="map.security">SÉCURITÉ</text>
               </g>
             </svg>
           </div>
@@ -207,10 +214,10 @@
     <section class="section" id="apropos">
       <div class="container">
         <div class="section__head" data-reveal>
-          <p class="section__index"><span>01</span> Profil</p>
+          <p class="section__index" data-i18n="about.index"><span>01</span> Profil</p>
           <div class="section__heading">
-            <h2 class="section__title">Un parcours d'étudiant,<br>une exigence de professionnel.</h2>
-            <p class="section__intro">
+            <h2 class="section__title" data-i18n="about.title">Un parcours d'étudiant,<br>une exigence de professionnel.</h2>
+            <p class="section__intro" data-i18n="about.intro">
               Je ne présente pas un CV de spécialiste. Je présente ce que je sais faire,
               ce que j'apprends et les preuves qui vont avec.
             </p>
@@ -219,56 +226,56 @@
 
         <div class="about__grid">
           <div class="about__prose" data-reveal>
-            <p>
+            <p data-i18n="about.p1">
               Je suis <strong>Ronus Eldo TOLIZARA</strong>, étudiant en deuxième année de Licence
               en <strong>Génie informatique</strong> à l'ISSTM de Mahajanga, à Madagascar.
               J'ai obtenu mon baccalauréat en 2024 et je me forme depuis avec une idée simple :
               on ne sécurise pas un système que l'on ne comprend pas.
             </p>
-            <p>
+            <p data-i18n="about.p2">
               Mon environnement principal est <strong>Kali Linux</strong>. J'y travaille le terminal,
               les permissions, les scripts Bash, Git et le développement web. J'utilise aussi
               Windows, VS Code et des machines virtualisées pour mes laboratoires. Python et C
               font partie de ma progression — avec le niveau d'un étudiant qui apprend.
             </p>
-            <p>
+            <p data-i18n="about.p3">
               Ma méthode tient en cinq mots : <em>lire, pratiquer, casser, réparer, documenter</em>.
               Chaque projet de ce portfolio existe sur ma machine. Ceux qui sont inachevés sont
               signalés comme tels, et aucune démonstration n'est inventée.
             </p>
-            <p>
+            <p data-i18n="about.p4">
               À terme, je veux devenir autonome sur Linux et les réseaux, puis approfondir la
               <strong>cybersécurité défensive</strong>. Je souhaite aussi poursuivre mes études à
               l'étranger, notamment au Japon, et construire des outils utiles à mon entourage.
             </p>
           </div>
 
-          <aside class="fact-card" data-reveal aria-label="Informations factuelles">
-            <p class="fact-card__label">// fiche rapide</p>
+          <aside class="fact-card" data-reveal aria-label="Informations factuelles" data-i18n-aria-label="fact.aria">
+            <p class="fact-card__label" data-i18n="fact.label">// fiche rapide</p>
             <dl class="fact-list">
               <div>
-                <dt>Formation</dt>
-                <dd>L2 Génie informatique<br><span>ISSTM Mahajanga</span></dd>
+                <dt data-i18n="fact.education">Formation</dt>
+                <dd data-i18n="fact.education.value">L2 Génie informatique<br><span>ISSTM Mahajanga</span></dd>
               </div>
               <div>
-                <dt>Baccalauréat</dt>
-                <dd>2024</dd>
+                <dt data-i18n="fact.bac">Baccalauréat</dt>
+                <dd data-i18n="fact.bac.value">2024</dd>
               </div>
               <div>
-                <dt>Environnement</dt>
-                <dd>Kali Linux · Windows</dd>
+                <dt data-i18n="fact.env">Environnement</dt>
+                <dd data-i18n="fact.env.value">Kali Linux · Windows</dd>
               </div>
               <div>
-                <dt>Langues</dt>
-                <dd>Français courant · Anglais débutant · Japonais débutant</dd>
+                <dt data-i18n="fact.langs">Langues</dt>
+                <dd data-i18n="fact.langs.value">Français courant · Anglais débutant · Japonais débutant</dd>
               </div>
               <div>
-                <dt>Centres d'intérêt</dt>
-                <dd>Linux · réseaux · cybersécurité · documentation</dd>
+                <dt data-i18n="fact.interests">Centres d'intérêt</dt>
+                <dd data-i18n="fact.interests.value">Linux · réseaux · cybersécurité · documentation</dd>
               </div>
               <div>
-                <dt>Recherche</dt>
-                <dd>Bourses d'études — Japon et international</dd>
+                <dt data-i18n="fact.search">Recherche</dt>
+                <dd data-i18n="fact.search.value">Bourses d'études — Japon et international</dd>
               </div>
             </dl>
           </aside>
@@ -277,18 +284,18 @@
         <div class="principles" data-reveal>
           <article class="principle">
             <span class="principle__num" aria-hidden="true">01</span>
-            <h3>Comprendre avant d'automatiser</h3>
-            <p>Une commande que je ne peux pas expliquer n'est pas une compétence acquise.</p>
+            <h3 data-i18n="principle.1.title">Comprendre avant d'automatiser</h3>
+            <p data-i18n="principle.1.text">Une commande que je ne peux pas expliquer n'est pas une compétence acquise.</p>
           </article>
           <article class="principle">
             <span class="principle__num" aria-hidden="true">02</span>
-            <h3>Tester avant de publier</h3>
-            <p>Un projet n'est présenté comme fonctionnel que s'il a été exécuté et vérifié.</p>
+            <h3 data-i18n="principle.2.title">Tester avant de publier</h3>
+            <p data-i18n="principle.2.text">Un projet n'est présenté comme fonctionnel que s'il a été exécuté et vérifié.</p>
           </article>
           <article class="principle">
             <span class="principle__num" aria-hidden="true">03</span>
-            <h3>Documenter ce qui reste à faire</h3>
-            <p>Les limites sont écrites noir sur blanc, pas cachées derrière un badge.</p>
+            <h3 data-i18n="principle.3.title">Documenter ce qui reste à faire</h3>
+            <p data-i18n="principle.3.text">Les limites sont écrites noir sur blanc, pas cachées derrière un badge.</p>
           </article>
         </div>
       </div>
@@ -300,20 +307,20 @@
     <section class="section section--alt" id="competences">
       <div class="container">
         <div class="section__head" data-reveal>
-          <p class="section__index"><span>02</span> Compétences</p>
+          <p class="section__index" data-i18n="skills.index"><span>02</span> Compétences</p>
           <div class="section__heading">
-            <h2 class="section__title">Ce que je sais faire,<br>ce que j'apprends encore.</h2>
-            <p class="section__intro">
+            <h2 class="section__title" data-i18n="skills.title">Ce que je sais faire,<br>ce que j'apprends encore.</h2>
+            <p class="section__intro" data-i18n="skills.intro">
               Trois niveaux, aucun pourcentage inventé. Une étiquette décrit un usage réel,
               pas une valeur professionnelle.
             </p>
           </div>
         </div>
 
-        <ul class="legend" data-reveal aria-label="Légende des niveaux">
-          <li><span class="level level--practice">Pratiqué</span> déjà utilisé dans un projet ou au quotidien.</li>
-          <li><span class="level level--progress">En progression</span> étudié et exercé, encore en consolidation.</li>
-          <li><span class="level level--discover">Découverte</span> notions initiales, pas encore autonome.</li>
+        <ul class="legend" data-reveal aria-label="Légende des niveaux" data-i18n-aria-label="skills.legend.aria">
+          <li><span class="level level--practice">Pratiqué</span><span data-i18n="skills.legend.1"> déjà utilisé dans un projet ou au quotidien.</span></li>
+          <li><span class="level level--progress">En progression</span><span data-i18n="skills.legend.2"> étudié et exercé, encore en consolidation.</span></li>
+          <li><span class="level level--discover">Découverte</span><span data-i18n="skills.legend.3"> notions initiales, pas encore autonome.</span></li>
         </ul>
 
         <div class="skills__grid">
@@ -321,84 +328,84 @@
           <article class="skill-card" data-reveal>
             <header class="skill-card__head">
               <span class="skill-card__num" aria-hidden="true">01</span>
-              <h3>Systèmes &amp; Linux</h3>
+              <h3 data-i18n="skills.sys.title">Systèmes &amp; Linux</h3>
             </header>
             <ul class="skill-list">
-              <li><span class="level level--practice">Pratiqué</span><span>Linux / Kali : terminal, fichiers, processus, permissions</span></li>
-              <li><span class="level level--practice">Pratiqué</span><span>Windows : usage quotidien, outils de base</span></li>
-              <li><span class="level level--progress">En progression</span><span>Administration de base : services, journaux, sauvegardes</span></li>
-              <li><span class="level level--discover">Découverte</span><span>Durcissement système et virtualisation avancée</span></li>
+              <li><span class="level level--practice">Pratiqué</span><span data-i18n="skills.sys.1">Linux / Kali : terminal, fichiers, processus, permissions</span></li>
+              <li><span class="level level--practice">Pratiqué</span><span data-i18n="skills.sys.2">Windows : usage quotidien, outils de base</span></li>
+              <li><span class="level level--progress">En progression</span><span data-i18n="skills.sys.3">Administration de base : services, journaux, sauvegardes</span></li>
+              <li><span class="level level--discover">Découverte</span><span data-i18n="skills.sys.4">Durcissement système et virtualisation avancée</span></li>
             </ul>
           </article>
 
           <article class="skill-card" data-reveal>
             <header class="skill-card__head">
               <span class="skill-card__num" aria-hidden="true">02</span>
-              <h3>Bash &amp; automatisation</h3>
+              <h3 data-i18n="skills.bash.title">Bash &amp; automatisation</h3>
             </header>
             <ul class="skill-list">
-              <li><span class="level level--practice">Pratiqué</span><span>Variables, conditions, boucles, fonctions, validation d'entrées</span></li>
-              <li><span class="level level--practice">Pratiqué</span><span>Scripts de sauvegarde, d'audit de permissions et de nettoyage</span></li>
-              <li><span class="level level--progress">En progression</span><span>Gestion des erreurs, codes de retour, tests locaux</span></li>
-              <li><span class="level level--discover">Découverte</span><span>Planification cron et scripts systemd</span></li>
+              <li><span class="level level--practice">Pratiqué</span><span data-i18n="skills.bash.1">Variables, conditions, boucles, fonctions, validation d'entrées</span></li>
+              <li><span class="level level--practice">Pratiqué</span><span data-i18n="skills.bash.2">Scripts de sauvegarde, d'audit de permissions et de nettoyage</span></li>
+              <li><span class="level level--progress">En progression</span><span data-i18n="skills.bash.3">Gestion des erreurs, codes de retour, tests locaux</span></li>
+              <li><span class="level level--discover">Découverte</span><span data-i18n="skills.bash.4">Planification cron et scripts systemd</span></li>
             </ul>
           </article>
 
           <article class="skill-card" data-reveal>
             <header class="skill-card__head">
               <span class="skill-card__num" aria-hidden="true">03</span>
-              <h3>Réseaux</h3>
+              <h3 data-i18n="skills.net.title">Réseaux</h3>
             </header>
             <ul class="skill-list">
-              <li><span class="level level--progress">En progression</span><span>Modèles OSI et TCP/IP, adressage IPv4, ports</span></li>
-              <li><span class="level level--progress">En progression</span><span>Diagnostic : <code>ip</code>, <code>ping</code>, <code>ss</code>, DNS</span></li>
-              <li><span class="level level--discover">Découverte</span><span>Wireshark : filtres et lecture d'en-têtes guidée</span></li>
-              <li><span class="level level--discover">Découverte</span><span>Packet Tracer, VLAN, routage et commutation</span></li>
+              <li><span class="level level--progress">En progression</span><span data-i18n="skills.net.1">Modèles OSI et TCP/IP, adressage IPv4, ports</span></li>
+              <li><span class="level level--progress">En progression</span><span data-i18n="skills.net.2">Diagnostic : <code>ip</code>, <code>ping</code>, <code>ss</code>, DNS</span></li>
+              <li><span class="level level--discover">Découverte</span><span data-i18n="skills.net.3">Wireshark : filtres et lecture d'en-têtes guidée</span></li>
+              <li><span class="level level--discover">Découverte</span><span data-i18n="skills.net.4">Packet Tracer, VLAN, routage et commutation</span></li>
             </ul>
           </article>
 
           <article class="skill-card" data-reveal>
             <header class="skill-card__head">
               <span class="skill-card__num" aria-hidden="true">04</span>
-              <h3>Python &amp; algorithmique</h3>
+              <h3 data-i18n="skills.py.title">Python &amp; algorithmique</h3>
             </header>
             <ul class="skill-list">
-              <li><span class="level level--progress">En progression</span><span>Scripts, logique, boucles, fonctions, Tkinter</span></li>
-              <li><span class="level level--progress">En progression</span><span>Lecture et adaptation de code existant</span></li>
-              <li><span class="level level--discover">Découverte</span><span>Flask / Jinja2 : compréhension de templates</span></li>
-              <li><span class="level level--discover">Découverte</span><span>C : bases du langage, compilation, types</span></li>
+              <li><span class="level level--progress">En progression</span><span data-i18n="skills.py.1">Scripts, logique, boucles, fonctions, Tkinter</span></li>
+              <li><span class="level level--progress">En progression</span><span data-i18n="skills.py.2">Lecture et adaptation de code existant</span></li>
+              <li><span class="level level--discover">Découverte</span><span data-i18n="skills.py.3">Flask / Jinja2 : compréhension de templates</span></li>
+              <li><span class="level level--discover">Découverte</span><span data-i18n="skills.py.4">C : bases du langage, compilation, types</span></li>
             </ul>
           </article>
 
           <article class="skill-card" data-reveal>
             <header class="skill-card__head">
               <span class="skill-card__num" aria-hidden="true">05</span>
-              <h3>Web &amp; documentation</h3>
+              <h3 data-i18n="skills.web.title">Web &amp; documentation</h3>
             </header>
             <ul class="skill-list">
-              <li><span class="level level--practice">Pratiqué</span><span>HTML sémantique et CSS responsive</span></li>
-              <li><span class="level level--progress">En progression</span><span>JavaScript vanilla : DOM, événements, interactions</span></li>
-              <li><span class="level level--progress">En progression</span><span>Accessibilité, performance, organisation CSS</span></li>
-              <li><span class="level level--practice">Pratiqué</span><span>Git, GitHub, Markdown et README techniques</span></li>
+              <li><span class="level level--practice">Pratiqué</span><span data-i18n="skills.web.1">HTML sémantique et CSS responsive</span></li>
+              <li><span class="level level--progress">En progression</span><span data-i18n="skills.web.2">JavaScript vanilla : DOM, événements, interactions</span></li>
+              <li><span class="level level--progress">En progression</span><span data-i18n="skills.web.3">Accessibilité, performance, organisation CSS</span></li>
+              <li><span class="level level--practice">Pratiqué</span><span data-i18n="skills.web.4">Git, GitHub, Markdown et README techniques</span></li>
             </ul>
           </article>
 
           <article class="skill-card" data-reveal>
             <header class="skill-card__head">
               <span class="skill-card__num" aria-hidden="true">06</span>
-              <h3>Sécurité &amp; méthode</h3>
+              <h3 data-i18n="skills.sec.title">Sécurité &amp; méthode</h3>
             </header>
             <ul class="skill-list">
-              <li><span class="level level--practice">Pratiqué</span><span>Permissions Linux et principe de moindre privilège</span></li>
-              <li><span class="level level--progress">En progression</span><span>Comptes, sauvegardes et lecture de journaux</span></li>
-              <li><span class="level level--discover">Découverte</span><span>Cryptographie appliquée et sécurité réseau</span></li>
-              <li><span class="level level--discover">Découverte</span><span>Notions de tests d'intrusion, aucun usage réel</span></li>
+              <li><span class="level level--practice">Pratiqué</span><span data-i18n="skills.sec.1">Permissions Linux et principe de moindre privilège</span></li>
+              <li><span class="level level--progress">En progression</span><span data-i18n="skills.sec.2">Comptes, sauvegardes et lecture de journaux</span></li>
+              <li><span class="level level--discover">Découverte</span><span data-i18n="skills.sec.3">Cryptographie appliquée et sécurité réseau</span></li>
+              <li><span class="level level--discover">Découverte</span><span data-i18n="skills.sec.4">Notions de tests d'intrusion, aucun usage réel</span></li>
             </ul>
           </article>
 
         </div>
 
-        <p class="section__note" data-reveal>
+        <p class="section__note" data-reveal data-i18n="skills.note">
           Aucune certification professionnelle n'est revendiquée. Le DELF B1 (2022) est le seul
           diplôme linguistique mentionné.
         </p>
@@ -411,10 +418,10 @@
     <section class="section" id="projets">
       <div class="container">
         <div class="section__head" data-reveal>
-          <p class="section__index"><span>03</span> Projets</p>
+          <p class="section__index" data-i18n="projects.index"><span>03</span> Projets</p>
           <div class="section__heading">
-            <h2 class="section__title">Des réalisations réelles,<br>avec leur statut exact.</h2>
-            <p class="section__intro">
+            <h2 class="section__title" data-i18n="projects.title">Des réalisations réelles,<br>avec leur statut exact.</h2>
+            <p class="section__intro" data-i18n="projects.intro">
               Inventaire vérifié en novembre 2026 : projets inspectés sur ma machine et dépôts
               GitHub consultés. Chaque fiche indique l'état réel et ce qui reste à faire.
             </p>
@@ -422,15 +429,15 @@
         </div>
 
         <div class="project-filter" data-reveal>
-          <span class="project-filter__label" id="filter-label">Filtrer</span>
+          <span class="project-filter__label" id="filter-label" data-i18n="projects.filter.label">Filtrer</span>
           <div class="project-filter__buttons" role="group" aria-labelledby="filter-label">
-            <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">Tous <span>8</span></button>
-            <button class="filter-btn" type="button" data-filter="system" aria-pressed="false">Système <span>3</span></button>
-            <button class="filter-btn" type="button" data-filter="network" aria-pressed="false">Réseau <span>1</span></button>
-            <button class="filter-btn" type="button" data-filter="web" aria-pressed="false">Web <span>2</span></button>
-            <button class="filter-btn" type="button" data-filter="python" aria-pressed="false">Python <span>2</span></button>
-            <button class="filter-btn" type="button" data-filter="team" aria-pressed="false">Équipe <span>1</span></button>
-            <button class="filter-btn" type="button" data-filter="todo" aria-pressed="false">À compléter <span>1</span></button>
+            <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true" data-i18n="projects.filter.all">Tous <span>8</span></button>
+            <button class="filter-btn" type="button" data-filter="system" aria-pressed="false" data-i18n="projects.filter.system">Système <span>3</span></button>
+            <button class="filter-btn" type="button" data-filter="network" aria-pressed="false" data-i18n="projects.filter.network">Réseau <span>1</span></button>
+            <button class="filter-btn" type="button" data-filter="web" aria-pressed="false" data-i18n="projects.filter.web">Web <span>2</span></button>
+            <button class="filter-btn" type="button" data-filter="python" aria-pressed="false" data-i18n="projects.filter.python">Python <span>2</span></button>
+            <button class="filter-btn" type="button" data-filter="team" aria-pressed="false" data-i18n="projects.filter.team">Équipe <span>1</span></button>
+            <button class="filter-btn" type="button" data-filter="todo" aria-pressed="false" data-i18n="projects.filter.todo">À compléter <span>1</span></button>
           </div>
         </div>
 
@@ -440,12 +447,12 @@
           <article class="project project--wide project--feature" data-tags="system" data-reveal>
             <div class="project__main">
               <div class="project__top">
-                <p class="project__kind">01 · Outil système</p>
-                <span class="status status--done"><span class="status__dot" aria-hidden="true"></span>Terminé — v1.0</span>
+                <p class="project__kind" data-i18n="p1.kind">01 · Outil système</p>
+                <span class="status status--done" data-i18n="p1.status"><span class="status__dot" aria-hidden="true"></span>Terminé — v1.0</span>
               </div>
 
               <h3 class="project__title">Linux Permission Manager</h3>
-              <p class="project__desc">
+              <p class="project__desc" data-i18n="p1.desc">
                 Script Bash interactif pour consulter et modifier les permissions d'un fichier
                 sous Linux. Il affiche les droits symboliques et numériques, le propriétaire et
                 le groupe, puis applique un mode autorisé après validation.
@@ -460,16 +467,16 @@
               </ul>
 
               <details class="project__details">
-                <summary>Fonctionnalités vérifiées dans le script</summary>
+                <summary data-i18n="p1.details">Fonctionnalités vérifiées dans le script</summary>
                 <div class="project__details-body">
                   <ul class="check-list">
-                    <li>Menu interactif et mode avec arguments <code>&lt;fichier&gt; &lt;permission&gt;</code>.</li>
-                    <li>Affichage des permissions, du propriétaire et du groupe.</li>
-                    <li>Validation des modes 600, 640, 644, 700 et 755.</li>
-                    <li>Gestion des erreurs : fichier absent, dossier, permission invalide.</li>
-                    <li>Réaffichage des permissions après modification.</li>
+                    <li data-i18n="p1.li1">Menu interactif et mode avec arguments <code>&lt;fichier&gt; &lt;permission&gt;</code>.</li>
+                    <li data-i18n="p1.li2">Affichage des permissions, du propriétaire et du groupe.</li>
+                    <li data-i18n="p1.li3">Validation des modes 600, 640, 644, 700 et 755.</li>
+                    <li data-i18n="p1.li4">Gestion des erreurs : fichier absent, dossier, permission invalide.</li>
+                    <li data-i18n="p1.li5">Réaffichage des permissions après modification.</li>
                   </ul>
-                  <p class="project__note">
+                  <p class="project__note" data-i18n="p1.note">
                     <strong>Limites assumées :</strong> un seul fichier à la fois, cinq modes acceptés,
                     pas de modification du propriétaire ni du groupe.
                   </p>
@@ -478,7 +485,7 @@
 
               <div class="project__foot">
                 <a class="project__link" href="https://github.com/Ronus-E/linux-permission-manager"
-                  target="_blank" rel="noopener noreferrer">
+                  target="_blank" rel="noopener noreferrer" data-i18n="p1.link">
                   Code sur GitHub <span aria-hidden="true">↗</span>
                   <span class="visually-hidden">(ouvre un nouvel onglet)</span>
                 </a>
@@ -486,7 +493,7 @@
               </div>
             </div>
 
-            <div class="project__aside" aria-label="Exemple de sortie du script">
+            <div class="project__aside" aria-label="Exemple de sortie du script" data-i18n-aria-label="p1.aside.aria">
               <div class="code">
                 <div class="code__bar">
                   <span class="code__dots" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -500,19 +507,19 @@ Owner: ghostroot
 Group: ghostroot
 <span class="c-ok">Permission 640 applied successfully.</span></code></pre>
               </div>
-              <p class="code__caption">Sortie réelle du script sur un fichier de test.</p>
+              <p class="code__caption" data-i18n="p1.caption">Sortie réelle du script sur un fichier de test.</p>
             </div>
           </article>
 
           <!-- IANATRA -->
           <article class="project project--wide" data-tags="web" data-reveal>
             <div class="project__top">
-              <p class="project__kind">02 · Application web</p>
-              <span class="status status--progress"><span class="status__dot" aria-hidden="true"></span>Pilote avancé — en validation</span>
+              <p class="project__kind" data-i18n="p2.kind">02 · Application web</p>
+              <span class="status status--progress" data-i18n="p2.status"><span class="status__dot" aria-hidden="true"></span>Pilote avancé — en validation</span>
             </div>
 
-            <h3 class="project__title">IANATRA — Gestion scolaire</h3>
-            <p class="project__desc">
+            <h3 class="project__title" data-i18n="p2.title">IANATRA — Gestion scolaire</h3>
+            <p class="project__desc" data-i18n="p2.desc">
               Application web locale de gestion pour un lycée : classes, élèves, personnel,
               présences, notes, bulletins, frais, paiements, reçus, dépenses et journal d'audit.
               Interface en français, données stockées dans une base SQLite.
@@ -527,17 +534,17 @@ Group: ghostroot
             </ul>
 
             <details class="project__details">
-              <summary>Fonctionnalités vérifiées dans le code</summary>
+              <summary data-i18n="p2.details">Fonctionnalités vérifiées dans le code</summary>
               <div class="project__details-body">
                 <ul class="check-list">
-                  <li>Gestion des classes, élèves, personnel et comptes utilisateurs.</li>
-                  <li>Présences, notes, moyennes pondérées, rang et bulletins imprimables.</li>
-                  <li>Frais, paiements, reçus numérotés, dépenses et rapports mensuels.</li>
-                  <li>Rôles contrôlés côté serveur : administrateur, secrétariat, comptable, enseignant, lecture seule.</li>
-                  <li>Jeton CSRF, mots de passe hachés, session revérifiée en base.</li>
-                  <li>Sauvegarde SQLite, exports CSV et suite de tests <code>unittest</code> présente.</li>
+                  <li data-i18n="p2.li1">Gestion des classes, élèves, personnel et comptes utilisateurs.</li>
+                  <li data-i18n="p2.li2">Présences, notes, moyennes pondérées, rang et bulletins imprimables.</li>
+                  <li data-i18n="p2.li3">Frais, paiements, reçus numérotés, dépenses et rapports mensuels.</li>
+                  <li data-i18n="p2.li4">Rôles contrôlés côté serveur : administrateur, secrétariat, comptable, enseignant, lecture seule.</li>
+                  <li data-i18n="p2.li5">Jeton CSRF, mots de passe hachés, session revérifiée en base.</li>
+                  <li data-i18n="p2.li6">Sauvegarde SQLite, exports CSV et suite de tests <code>unittest</code> présente.</li>
                 </ul>
-                <p class="project__note">
+                <p class="project__note" data-i18n="p2.note">
                   <strong>Statut honnête :</strong> version pilote, non déployée publiquement et non
                   auditée indépendamment. Elle doit être testée sur des données fictives avant tout
                   usage réel. Le code reste local et n'est pas publié sur GitHub.
@@ -546,20 +553,20 @@ Group: ghostroot
             </details>
 
             <div class="project__foot">
-              <span class="project__muted">Code local — non publié</span>
-              <span class="project__meta">Flask · SQLite · rôles</span>
+              <span class="project__muted" data-i18n="p2.muted">Code local — non publié</span>
+              <span class="project__meta" data-i18n="p2.meta">Flask · SQLite · rôles</span>
             </div>
           </article>
 
           <!-- JARVIS -->
           <article class="project" data-tags="system" data-reveal>
             <div class="project__top">
-              <p class="project__kind">03 · Assistant local</p>
-              <span class="status status--done"><span class="status__dot" aria-hidden="true"></span>Opérationnel en local</span>
+              <p class="project__kind" data-i18n="p3.kind">03 · Assistant local</p>
+              <span class="status status--done" data-i18n="p3.status"><span class="status__dot" aria-hidden="true"></span>Opérationnel en local</span>
             </div>
 
             <h3 class="project__title">JARVIS</h3>
-            <p class="project__desc">
+            <p class="project__desc" data-i18n="p3.desc">
               Assistant personnel connecté à OpenCode : interface web locale, conversation en
               streaming, gestion de sessions, permissions confirmées par l'humain et voix locale.
               L'interface et la voix restent sur la machine.
@@ -574,17 +581,17 @@ Group: ghostroot
             </ul>
 
             <details class="project__details">
-              <summary>Fonctionnalités vérifiées dans le code</summary>
+              <summary data-i18n="p3.details">Fonctionnalités vérifiées dans le code</summary>
               <div class="project__details-body">
                 <ul class="check-list">
-                  <li>Serveur local sur <code>127.0.0.1:7860</code>, proxy vers OpenCode.</li>
-                  <li>Réponses en streaming SSE, historique de sessions, interruption de requête.</li>
-                  <li>Confirmation humaine obligatoire avant toute permission sensible.</li>
-                  <li>Surveillance CPU / RAM / disque en lecture seule.</li>
-                  <li>Synthèse vocale Piper et reconnaissance locale faster-whisper, en opt-in.</li>
-                  <li>CSP stricte, aucun secret exposé au navigateur.</li>
+                  <li data-i18n="p3.li1">Serveur local sur <code>127.0.0.1:7860</code>, proxy vers OpenCode.</li>
+                  <li data-i18n="p3.li2">Réponses en streaming SSE, historique de sessions, interruption de requête.</li>
+                  <li data-i18n="p3.li3">Confirmation humaine obligatoire avant toute permission sensible.</li>
+                  <li data-i18n="p3.li4">Surveillance CPU / RAM / disque en lecture seule.</li>
+                  <li data-i18n="p3.li5">Synthèse vocale Piper et reconnaissance locale faster-whisper, en opt-in.</li>
+                  <li data-i18n="p3.li6">CSP stricte, aucun secret exposé au navigateur.</li>
                 </ul>
-                <p class="project__note">
+                <p class="project__note" data-i18n="p3.note">
                   <strong>Statut honnête :</strong> projet personnel opérationnel sur ma machine,
                   non publié et non destiné à être exposé sur Internet. Aucune démo publique.
                 </p>
@@ -592,20 +599,20 @@ Group: ghostroot
             </details>
 
             <div class="project__foot">
-              <span class="project__muted">Usage local uniquement</span>
-              <span class="project__meta">Node · SSE · voix</span>
+              <span class="project__muted" data-i18n="p3.muted">Usage local uniquement</span>
+              <span class="project__meta" data-i18n="p3.meta">Node · SSE · voix</span>
             </div>
           </article>
 
           <!-- LABORATOIRES LINUX -->
           <article class="project" data-tags="system" data-reveal>
             <div class="project__top">
-              <p class="project__kind">04 · Laboratoire personnel</p>
-              <span class="status status--done"><span class="status__dot" aria-hidden="true"></span>Pratique régulière</span>
+              <p class="project__kind" data-i18n="p4.kind">04 · Laboratoire personnel</p>
+              <span class="status status--done" data-i18n="p4.status"><span class="status__dot" aria-hidden="true"></span>Pratique régulière</span>
             </div>
 
-            <h3 class="project__title">Laboratoires Linux</h3>
-            <p class="project__desc">
+            <h3 class="project__title" data-i18n="p4.title">Laboratoires Linux</h3>
+            <p class="project__desc" data-i18n="p4.desc">
               Exercices répétés sur une machine Kali : navigation, permissions, utilisateurs,
               groupes, processus et redirections. Chaque manipulation est refaite au terminal
               jusqu'à devenir un réflexe, pas une recette copiée.
@@ -620,16 +627,16 @@ Group: ghostroot
             </ul>
 
             <details class="project__details">
-              <summary>Ce que ces laboratoires couvrent</summary>
+              <summary data-i18n="p4.details">Ce que ces laboratoires couvrent</summary>
               <div class="project__details-body">
                 <ul class="check-list">
-                  <li>Lecture et modification de permissions symboliques et numériques.</li>
-                  <li>Propriétaires, groupes et principe de moindre privilège.</li>
-                  <li>Surveillance de processus et identification d'un service actif.</li>
-                  <li>Redirections, tubes et recherche dans les fichiers.</li>
-                  <li>Organisation d'un espace de travail <code>CyberLab</code> par thème.</li>
+                  <li data-i18n="p4.li1">Lecture et modification de permissions symboliques et numériques.</li>
+                  <li data-i18n="p4.li2">Propriétaires, groupes et principe de moindre privilège.</li>
+                  <li data-i18n="p4.li3">Surveillance de processus et identification d'un service actif.</li>
+                  <li data-i18n="p4.li4">Redirections, tubes et recherche dans les fichiers.</li>
+                  <li data-i18n="p4.li5">Organisation d'un espace de travail <code>CyberLab</code> par thème.</li>
                 </ul>
-                <p class="project__note">
+                <p class="project__note" data-i18n="p4.note">
                   <strong>Statut honnête :</strong> travaux pratiques personnels, non publiés.
                   Ils prouvent une pratique, pas une expérience en production.
                 </p>
@@ -637,7 +644,7 @@ Group: ghostroot
             </details>
 
             <div class="project__foot">
-              <span class="project__muted">Travaux pratiques locaux</span>
+              <span class="project__muted" data-i18n="p4.muted">Travaux pratiques locaux</span>
               <span class="project__meta">Linux · permissions</span>
             </div>
           </article>
@@ -645,12 +652,12 @@ Group: ghostroot
           <!-- RÉSEAU -->
           <article class="project" data-tags="network" data-reveal>
             <div class="project__top">
-              <p class="project__kind">05 · Apprentissage réseau</p>
-              <span class="status status--progress"><span class="status__dot" aria-hidden="true"></span>En apprentissage</span>
+              <p class="project__kind" data-i18n="p5.kind">05 · Apprentissage réseau</p>
+              <span class="status status--progress" data-i18n="p5.status"><span class="status__dot" aria-hidden="true"></span>En apprentissage</span>
             </div>
 
-            <h3 class="project__title">Analyse réseau — Wireshark &amp; Packet Tracer</h3>
-            <p class="project__desc">
+            <h3 class="project__title" data-i18n="p5.title">Analyse réseau — Wireshark &amp; Packet Tracer</h3>
+            <p class="project__desc" data-i18n="p5.desc">
               Lecture guidée de captures avec Wireshark — filtres, en-têtes, TCP et UDP — et
               simulations de topologies dans Packet Tracer. Objectif : comprendre ce qui circule
               avant de diagnostiquer ou de sécuriser.
@@ -664,15 +671,15 @@ Group: ghostroot
             </ul>
 
             <details class="project__details">
-              <summary>État réel de cet apprentissage</summary>
+              <summary data-i18n="p5.details">État réel de cet apprentissage</summary>
               <div class="project__details-body">
                 <ul class="check-list">
-                  <li>Filtres d'affichage et lecture des en-têtes principaux.</li>
-                  <li>Deux simulations Packet Tracer conservées et rouvertes.</li>
-                  <li>Commandes de diagnostic : <code>ip</code>, <code>ping</code>, <code>ss</code>, DNS.</li>
-                  <li>Notions de VLAN, routage et commutation encore en découverte.</li>
+                  <li data-i18n="p5.li1">Filtres d'affichage et lecture des en-têtes principaux.</li>
+                  <li data-i18n="p5.li2">Deux simulations Packet Tracer conservées et rouvertes.</li>
+                  <li data-i18n="p5.li3">Commandes de diagnostic : <code>ip</code>, <code>ping</code>, <code>ss</code>, DNS.</li>
+                  <li data-i18n="p5.li4">Notions de VLAN, routage et commutation encore en découverte.</li>
                 </ul>
-                <p class="project__note">
+                <p class="project__note" data-i18n="p5.note">
                   <strong>Limite honnête :</strong> aucune capture réelle n'est publiée et je ne
                   prétends pas à une analyse experte. C'est un apprentissage encadré, pas un audit.
                 </p>
@@ -680,7 +687,7 @@ Group: ghostroot
             </details>
 
             <div class="project__foot">
-              <span class="project__muted">Captures non publiées</span>
+              <span class="project__muted" data-i18n="p5.muted">Captures non publiées</span>
               <span class="project__meta">Wireshark · TCP/IP</span>
             </div>
           </article>
@@ -688,12 +695,12 @@ Group: ghostroot
           <!-- PYTHON -->
           <article class="project" data-tags="python" data-reveal>
             <div class="project__top">
-              <p class="project__kind">06 · Exercices Python</p>
-              <span class="status status--progress"><span class="status__dot" aria-hidden="true"></span>Prototype jouable</span>
+              <p class="project__kind" data-i18n="p6.kind">06 · Exercices Python</p>
+              <span class="status status--progress" data-i18n="p6.status"><span class="status__dot" aria-hidden="true"></span>Prototype jouable</span>
             </div>
 
-            <h3 class="project__title">Mini Adventure &amp; exercices Python</h3>
-            <p class="project__desc">
+            <h3 class="project__title" data-i18n="p6.title">Mini Adventure &amp; exercices Python</h3>
+            <p class="project__desc" data-i18n="p6.desc">
               Petit jeu de plateforme en Tkinter : déplacement, saut et double saut. Autour de ce
               prototype, une série d'exercices pour comprendre les variables, les boucles et la
               boucle d'animation d'une interface graphique.
@@ -706,16 +713,16 @@ Group: ghostroot
             </ul>
 
             <details class="project__details">
-              <summary>Fonctionnalités vérifiées dans le code</summary>
+              <summary data-i18n="p6.details">Fonctionnalités vérifiées dans le code</summary>
               <div class="project__details-body">
                 <ul class="check-list">
-                  <li>Fenêtre 800 × 500 et zone de jeu dessinée sur un canevas.</li>
-                  <li>Déplacement gauche / droite borné aux limites de l'écran.</li>
-                  <li>Saut animé avec vitesse verticale et remise à zéro au sol.</li>
-                  <li>Double saut limité à deux impulsions.</li>
-                  <li>Notes de cours personnelles pour expliquer chaque instruction.</li>
+                  <li data-i18n="p6.li1">Fenêtre 800 × 500 et zone de jeu dessinée sur un canevas.</li>
+                  <li data-i18n="p6.li2">Déplacement gauche / droite borné aux limites de l'écran.</li>
+                  <li data-i18n="p6.li3">Saut animé avec vitesse verticale et remise à zéro au sol.</li>
+                  <li data-i18n="p6.li4">Double saut limité à deux impulsions.</li>
+                  <li data-i18n="p6.li5">Notes de cours personnelles pour expliquer chaque instruction.</li>
                 </ul>
-                <p class="project__note">
+                <p class="project__note" data-i18n="p6.note">
                   <strong>Limites assumées :</strong> pas de score, pas de niveaux, pas d'ennemis.
                   C'est un prototype d'apprentissage, pas un jeu complet.
                 </p>
@@ -723,7 +730,7 @@ Group: ghostroot
             </details>
 
             <div class="project__foot">
-              <span class="project__muted">Prototype local</span>
+              <span class="project__muted" data-i18n="p6.muted">Prototype local</span>
               <span class="project__meta">Python · Tkinter</span>
             </div>
           </article>
@@ -731,12 +738,12 @@ Group: ghostroot
           <!-- GMAO -->
           <article class="project" data-tags="python team" data-reveal>
             <div class="project__top">
-              <p class="project__kind">07 · Application desktop</p>
-              <span class="status status--progress"><span class="status__dot" aria-hidden="true"></span>Projet d'études — dépôt public</span>
+              <p class="project__kind" data-i18n="p7.kind">07 · Application desktop</p>
+              <span class="status status--progress" data-i18n="p7.status"><span class="status__dot" aria-hidden="true"></span>Projet d'études — dépôt public</span>
             </div>
 
-            <h3 class="project__title">GMAO — Gestion de maintenance</h3>
-            <p class="project__desc">
+            <h3 class="project__title" data-i18n="p7.title">GMAO — Gestion de maintenance</h3>
+            <p class="project__desc" data-i18n="p7.desc">
               Application de bureau en Python pour la gestion du matériel d'un service :
               inventaire, demandes d'intervention, bons de travail, techniciens et impression.
               Interface sombre en CustomTkinter, données locales SQLite. Projet d'études mené
@@ -751,15 +758,15 @@ Group: ghostroot
             </ul>
 
             <details class="project__details">
-              <summary>Mes contributions dans l'équipe</summary>
+              <summary data-i18n="p7.details">Mes contributions dans l'équipe</summary>
               <div class="project__details-body">
                 <ul class="check-list">
-                  <li>Écran Matériels : liste et ajout des équipements (<code>materiels.py</code>, <code>ajouter.py</code>).</li>
-                  <li>Gestion des techniciens (<code>techniciens.py</code>).</li>
-                  <li>Couche base de données : schéma SQLite et modèles (<code>database.py</code>, <code>models.py</code>).</li>
-                  <li>Impression et sortie des documents (<code>impression.py</code>).</li>
+                  <li data-i18n="p7.li1">Écran Matériels : liste et ajout des équipements (<code>materiels.py</code>, <code>ajouter.py</code>).</li>
+                  <li data-i18n="p7.li2">Gestion des techniciens (<code>techniciens.py</code>).</li>
+                  <li data-i18n="p7.li3">Couche base de données : schéma SQLite et modèles (<code>database.py</code>, <code>models.py</code>).</li>
+                  <li data-i18n="p7.li4">Impression et sortie des documents (<code>impression.py</code>).</li>
                 </ul>
-                <p class="project__note">
+                <p class="project__note" data-i18n="p7.note">
                   <strong>Statut honnête :</strong> projet d'équipe, pas un travail individuel.
                   Le dépôt d'origine appartient à l'équipe ; le lien pointe vers mon fork.
                   Application de bureau locale, sans démonstration web.
@@ -769,7 +776,7 @@ Group: ghostroot
 
             <div class="project__foot">
               <a class="project__link" href="https://github.com/Ronus-E/GMAO_App" target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer" data-i18n="p7.link">
                 Code sur GitHub <span aria-hidden="true">↗</span>
                 <span class="visually-hidden">(ouvre un nouvel onglet)</span>
               </a>
@@ -780,12 +787,12 @@ Group: ghostroot
           <!-- BUDGET PRO -->
           <article class="project" data-tags="web todo" data-reveal>
             <div class="project__top">
-              <p class="project__kind">08 · Application web</p>
-              <span class="status status--warn"><span class="status__dot" aria-hidden="true"></span>À consolider</span>
+              <p class="project__kind" data-i18n="p8.kind">08 · Application web</p>
+              <span class="status status--warn" data-i18n="p8.status"><span class="status__dot" aria-hidden="true"></span>À consolider</span>
             </div>
 
             <h3 class="project__title">Budget Pro</h3>
-            <p class="project__desc">
+            <p class="project__desc" data-i18n="p8.desc">
               Application de gestion de budget personnel, autonome dans une seule page HTML.
               Les données restent dans le navigateur via <code>localStorage</code>, sans compte
               ni serveur.
@@ -799,15 +806,15 @@ Group: ghostroot
             </ul>
 
             <details class="project__details">
-              <summary>Fonctionnalités retrouvées dans l'artefact</summary>
+              <summary data-i18n="p8.details">Fonctionnalités retrouvées dans l'artefact</summary>
               <div class="project__details-body">
                 <ul class="check-list">
-                  <li>Salaire mensuel, enveloppes de dépenses et suivi de progression.</li>
-                  <li>Épargne, fonds d'urgence et contrôle des achats impulsifs.</li>
-                  <li>Historique des transactions et archivage mensuel.</li>
-                  <li>Export et import des données au format JSON.</li>
+                  <li data-i18n="p8.li1">Salaire mensuel, enveloppes de dépenses et suivi de progression.</li>
+                  <li data-i18n="p8.li2">Épargne, fonds d'urgence et contrôle des achats impulsifs.</li>
+                  <li data-i18n="p8.li3">Historique des transactions et archivage mensuel.</li>
+                  <li data-i18n="p8.li4">Export et import des données au format JSON.</li>
                 </ul>
-                <p class="project__note">
+                <p class="project__note" data-i18n="p8.note">
                   <strong>Statut honnête :</strong> seul un artefact HTML autonome a été retrouvé ;
                   le code source n'est pas disponible. Le projet est présenté comme à consolider,
                   sans lien public ni démonstration.
@@ -816,7 +823,7 @@ Group: ghostroot
             </details>
 
             <div class="project__foot">
-              <span class="project__muted">Source à retrouver</span>
+              <span class="project__muted" data-i18n="p8.muted">Source à retrouver</span>
               <span class="project__meta">HTML · localStorage</span>
             </div>
           </article>
@@ -831,10 +838,10 @@ Group: ghostroot
     <section class="section section--alt" id="parcours">
       <div class="container">
         <div class="section__head" data-reveal>
-          <p class="section__index"><span>04</span> Parcours</p>
+          <p class="section__index" data-i18n="journey.index"><span>04</span> Parcours</p>
           <div class="section__heading">
-            <h2 class="section__title">Une progression<br>documentée, pas décorée.</h2>
-            <p class="section__intro">
+            <h2 class="section__title" data-i18n="journey.title">Une progression<br>documentée, pas décorée.</h2>
+            <p class="section__intro" data-i18n="journey.intro">
               Aucune expérience professionnelle à ce jour. Mes expériences pratiques sont
               les projets présentés ci-dessus et les laboratoires réalisés sur ma machine.
             </p>
@@ -846,7 +853,7 @@ Group: ghostroot
             <p class="timeline__year">2021</p>
             <div class="timeline__content">
               <h3>BEPC</h3>
-              <p>Fin du collège. Premières bases en informatique et intérêt pour les systèmes.</p>
+              <p data-i18n="journey.2021.text">Fin du collège. Premières bases en informatique et intérêt pour les systèmes.</p>
             </div>
           </article>
 
@@ -854,23 +861,23 @@ Group: ghostroot
             <p class="timeline__year">2022</p>
             <div class="timeline__content">
               <h3>DELF B1</h3>
-              <p>Certification de français, utile pour la documentation et les échanges techniques.</p>
+              <p data-i18n="journey.2022.text">Certification de français, utile pour la documentation et les échanges techniques.</p>
             </div>
           </article>
 
           <article class="timeline__item">
             <p class="timeline__year">2024</p>
             <div class="timeline__content">
-              <h3>Baccalauréat</h3>
-              <p>Obtention du diplôme, puis orientation vers le génie informatique à l'ISSTM.</p>
+              <h3 data-i18n="journey.2024.title">Baccalauréat</h3>
+              <p data-i18n="journey.2024.text">Obtention du diplôme, puis orientation vers le génie informatique à l'ISSTM.</p>
             </div>
           </article>
 
           <article class="timeline__item">
             <p class="timeline__year">2024 — 2026</p>
             <div class="timeline__content">
-              <h3>Licence Génie informatique — L1 puis L2</h3>
-              <p>
+              <h3 data-i18n="journey.degree.title">Licence Génie informatique — L1 puis L2</h3>
+              <p data-i18n="journey.degree.text">
                 Formation en informatique, développement logiciel, systèmes et réseaux.
                 Environnement de travail principal : Kali Linux.
               </p>
@@ -880,8 +887,8 @@ Group: ghostroot
           <article class="timeline__item timeline__item--active">
             <p class="timeline__year">2026</p>
             <div class="timeline__content">
-              <h3>Premiers projets personnels complets</h3>
-              <p>
+              <h3 data-i18n="journey.2026.title">Premiers projets personnels complets</h3>
+              <p data-i18n="journey.2026.text">
                 Linux Permission Manager (publié), IANATRA, JARVIS, Budget Pro et
                 Mini Adventure. Premiers tests réels, premières limites documentées.
               </p>
@@ -889,10 +896,10 @@ Group: ghostroot
           </article>
 
           <article class="timeline__item timeline__item--active">
-            <p class="timeline__year">Aujourd'hui</p>
+            <p class="timeline__year" data-i18n="journey.today.year">Aujourd'hui</p>
             <div class="timeline__content">
-              <h3>Réseaux et cybersécurité défensive</h3>
-              <p>
+              <h3 data-i18n="journey.today.title">Réseaux et cybersécurité défensive</h3>
+              <p data-i18n="journey.today.text">
                 Consolidation des fondamentaux réseau, des permissions Linux et de la
                 documentation technique. Objectif : des projets plus robustes, pas plus nombreux.
               </p>
@@ -901,12 +908,12 @@ Group: ghostroot
         </div>
 
         <aside class="honesty-box" data-reveal>
-          <p class="honesty-box__label">// ce que je ne prétends pas</p>
+          <p class="honesty-box__label" data-i18n="honesty.label">// ce que je ne prétends pas</p>
           <ul class="check-list check-list--cross">
-            <li>Aucune expérience professionnelle en entreprise.</li>
-            <li>Aucune certification en cybersécurité.</li>
-            <li>Aucune prestation de test d'intrusion ou d'audit de sécurité.</li>
-            <li>Aucune administration de serveur en production.</li>
+            <li data-i18n="honesty.1">Aucune expérience professionnelle en entreprise.</li>
+            <li data-i18n="honesty.2">Aucune certification en cybersécurité.</li>
+            <li data-i18n="honesty.3">Aucune prestation de test d'intrusion ou d'audit de sécurité.</li>
+            <li data-i18n="honesty.4">Aucune administration de serveur en production.</li>
           </ul>
         </aside>
       </div>
@@ -918,17 +925,17 @@ Group: ghostroot
     <section class="section" id="objectifs">
       <div class="container">
         <div class="section__head" data-reveal>
-          <p class="section__index"><span>05</span> Objectifs</p>
+          <p class="section__index" data-i18n="goals.index"><span>05</span> Objectifs</p>
           <div class="section__heading">
-            <h2 class="section__title">Où je vais,<br>et comment j'y compte arriver.</h2>
-            <p class="section__intro">
+            <h2 class="section__title" data-i18n="goals.title">Où je vais,<br>et comment j'y compte arriver.</h2>
+            <p class="section__intro" data-i18n="goals.intro">
               Un cap clair, découpé en étapes réalistes. Pas de promesse d'expertise :
               des compétences à acquérir, des preuves à produire.
             </p>
           </div>
         </div>
 
-        <p class="objectives__statement" data-reveal>
+        <p class="objectives__statement" data-reveal data-i18n="goals.statement">
           Devenir un professionnel <em>utile</em> : capable de comprendre une infrastructure,
           de la diagnostiquer, de la sécuriser et d'expliquer ses choix.
         </p>
@@ -936,52 +943,52 @@ Group: ghostroot
         <div class="objectives__grid">
           <article class="objective" data-reveal>
             <header class="objective__head">
-              <span class="objective__range">2026 — 2027</span>
-              <h3>Consolider les fondations</h3>
+              <span class="objective__range" data-i18n="goals.1.range">2026 — 2027</span>
+              <h3 data-i18n="goals.1.title">Consolider les fondations</h3>
             </header>
             <ul class="objective__list">
-              <li>Terminer la licence avec des bases solides en systèmes et réseaux.</li>
-              <li>Administrer Linux au quotidien : services, journaux, sauvegardes, permissions.</li>
-              <li>Atteindre un niveau de fundamentals réseau proche du programme CCNA.</li>
-              <li>Publier trois dépôts propres, documentés et testés.</li>
-              <li>Réaliser mes premières missions locales encadrées : sauvegarde, audit de permissions, nettoyage.</li>
+              <li data-i18n="goals.1.li1">Terminer la licence avec des bases solides en systèmes et réseaux.</li>
+              <li data-i18n="goals.1.li2">Administrer Linux au quotidien : services, journaux, sauvegardes, permissions.</li>
+              <li data-i18n="goals.1.li3">Atteindre un niveau de fundamentals réseau proche du programme CCNA.</li>
+              <li data-i18n="goals.1.li4">Publier trois dépôts propres, documentés et testés.</li>
+              <li data-i18n="goals.1.li5">Réaliser mes premières missions locales encadrées : sauvegarde, audit de permissions, nettoyage.</li>
             </ul>
           </article>
 
           <article class="objective" data-reveal>
             <header class="objective__head">
-              <span class="objective__range">2027 — 2029</span>
-              <h3>Spécialiser la pratique</h3>
+              <span class="objective__range" data-i18n="goals.2.range">2027 — 2029</span>
+              <h3 data-i18n="goals.2.title">Spécialiser la pratique</h3>
             </header>
             <ul class="objective__list">
-              <li>Approfondir la cybersécurité défensive : durcissement, journaux, intégrité, réponse initiale.</li>
-              <li>Multiplier les laboratoires autorisés et les exercices de détection.</li>
-              <li>Effectuer un stage en infrastructure, support ou sécurité.</li>
-              <li>Passer une certification uniquement si elle est utile, financée et réellement préparée.</li>
+              <li data-i18n="goals.2.li1">Approfondir la cybersécurité défensive : durcissement, journaux, intégrité, réponse initiale.</li>
+              <li data-i18n="goals.2.li2">Multiplier les laboratoires autorisés et les exercices de détection.</li>
+              <li data-i18n="goals.2.li3">Effectuer un stage en infrastructure, support ou sécurité.</li>
+              <li data-i18n="goals.2.li4">Passer une certification uniquement si elle est utile, financée et réellement préparée.</li>
             </ul>
           </article>
 
           <article class="objective" data-reveal>
             <header class="objective__head">
-              <span class="objective__range">2029 — …</span>
-              <h3>Passer à l'échelle</h3>
+              <span class="objective__range" data-i18n="goals.3.range">2029 — …</span>
+              <h3 data-i18n="goals.3.title">Passer à l'échelle</h3>
             </header>
             <ul class="objective__list">
-              <li>Poursuivre un master ou une spécialisation à l'étranger, notamment au Japon.</li>
-              <li>Travailler en équipe bleue : SOC, infrastructure ou sécurité des systèmes.</li>
-              <li>Construire des outils simples et utiles pour les PME et associations locales.</li>
-              <li>Transmettre à mon tour ce que j'aurai appris.</li>
+              <li data-i18n="goals.3.li1">Poursuivre un master ou une spécialisation à l'étranger, notamment au Japon.</li>
+              <li data-i18n="goals.3.li2">Travailler en équipe bleue : SOC, infrastructure ou sécurité des systèmes.</li>
+              <li data-i18n="goals.3.li3">Construire des outils simples et utiles pour les PME et associations locales.</li>
+              <li data-i18n="goals.3.li4">Transmettre à mon tour ce que j'aurai appris.</li>
             </ul>
           </article>
         </div>
 
         <div class="objectives__note" data-reveal>
-          <p>
+          <p data-i18n="goals.note">
             <strong>Cap assumé :</strong> la sécurité offensive ne sera pratiquée que dans un
             cadre autorisé, pédagogique et documenté. Aucune mission réelle sans contrat,
             périmètre écrit et compétence vérifiée.
           </p>
-          <a class="btn btn--outline" href="#contact">Discuter d'une opportunité</a>
+          <a class="btn btn--outline" href="#contact" data-i18n="goals.cta">Discuter d'une opportunité</a>
         </div>
       </div>
     </section>
@@ -992,10 +999,10 @@ Group: ghostroot
     <section class="section section--alt" id="contact">
       <div class="container">
         <div class="section__head" data-reveal>
-          <p class="section__index"><span>06</span> Contact</p>
+          <p class="section__index" data-i18n="contact.index"><span>06</span> Contact</p>
           <div class="section__heading">
-            <h2 class="section__title">Parlons d'un projet,<br>d'un stage ou d'un conseil.</h2>
-            <p class="section__intro">
+            <h2 class="section__title" data-i18n="contact.title">Parlons d'un projet,<br>d'un stage ou d'un conseil.</h2>
+            <p class="section__intro" data-i18n="contact.intro">
               Pour une question, une collaboration ou un retour sur un projet. Le formulaire
               prépare un email dans votre logiciel de messagerie : aucune donnée n'est envoyée
               à un serveur.
@@ -1005,13 +1012,13 @@ Group: ghostroot
 
         <div class="contact__grid">
           <div class="contact__info" data-reveal>
-            <p class="contact__lead">
+            <p class="contact__lead" data-i18n="contact.lead">
               Le plus simple reste l'email. Je consulte aussi GitHub pour suivre les projets
               publiés.
             </p>
 
             <a class="contact__email" href="mailto:eldockarter@gmail.com">
-              <span class="contact__email-label">Écrire à</span>
+              <span class="contact__email-label" data-i18n="contact.email.label">Écrire à</span>
               <span class="contact__email-value">eldockarter@gmail.com</span>
               <span class="contact__email-arrow" aria-hidden="true">↗</span>
             </a>
@@ -1023,19 +1030,20 @@ Group: ghostroot
                 <span class="contact-link__arrow" aria-hidden="true">↗</span>
               </a>
               <div class="contact-link contact-link--static">
-                <span class="contact-link__label">Localisation</span>
+                <span class="contact-link__label" data-i18n="contact.location.label">Localisation</span>
                 <span class="contact-link__value">Mahajanga, Madagascar</span>
               </div>
             </address>
 
-            <button class="btn btn--ghost copy-btn" type="button" data-copy="eldockarter@gmail.com">
+            <button class="btn btn--ghost copy-btn" type="button" data-copy="eldockarter@gmail.com"
+              data-i18n="contact.copy">
               Copier l'adresse email
             </button>
             <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
 
             <div class="availability">
-              <p class="availability__label">// disponibilité</p>
-              <p>
+              <p class="availability__label" data-i18n="contact.availability.label">// disponibilité</p>
+              <p data-i18n="contact.availability.text">
                 Ouvert aux stages, aux collaborations pédagogiques et aux petites missions
                 locales : assistance Linux, scripts Bash, pages web statiques, documentation.
               </p>
@@ -1044,44 +1052,45 @@ Group: ghostroot
 
           <form class="contact-form" id="contact-form" data-reveal novalidate>
             <div class="field">
-              <label for="name">Nom <span aria-hidden="true">*</span></label>
+              <label for="name" data-i18n="form.name">Nom <span aria-hidden="true">*</span></label>
               <input type="text" id="name" name="name" autocomplete="name" required
-                placeholder="Votre nom" aria-describedby="name-error">
+                placeholder="Votre nom" aria-describedby="name-error" data-i18n-placeholder="form.name.ph">
               <p class="field__error" id="name-error" role="alert"></p>
             </div>
 
             <div class="field">
-              <label for="email">Email <span aria-hidden="true">*</span></label>
+              <label for="email" data-i18n="form.email">Email <span aria-hidden="true">*</span></label>
               <input type="email" id="email" name="email" autocomplete="email" required
-                placeholder="vous@exemple.com" aria-describedby="email-error">
+                placeholder="vous@exemple.com" aria-describedby="email-error" data-i18n-placeholder="form.email.ph">
               <p class="field__error" id="email-error" role="alert"></p>
             </div>
 
             <div class="field">
-              <label for="subject">Sujet</label>
+              <label for="subject" data-i18n="form.subject">Sujet</label>
               <select id="subject" name="subject">
-                <option value="Question sur un projet">Question sur un projet</option>
-                <option value="Proposition de stage">Proposition de stage</option>
-                <option value="Mission locale">Mission locale</option>
-                <option value="Proposition de collaboration">Proposition de collaboration</option>
-                <option value="Retour sur le portfolio">Retour sur le portfolio</option>
-                <option value="Autre">Autre</option>
+                <option value="Question sur un projet" data-i18n="form.subject.1">Question sur un projet</option>
+                <option value="Proposition de stage" data-i18n="form.subject.2">Proposition de stage</option>
+                <option value="Mission locale" data-i18n="form.subject.3">Mission locale</option>
+                <option value="Proposition de collaboration" data-i18n="form.subject.4">Proposition de collaboration</option>
+                <option value="Retour sur le portfolio" data-i18n="form.subject.5">Retour sur le portfolio</option>
+                <option value="Autre" data-i18n="form.subject.6">Autre</option>
               </select>
             </div>
 
             <div class="field">
-              <label for="message">Message <span aria-hidden="true">*</span></label>
+              <label for="message" data-i18n="form.message">Message <span aria-hidden="true">*</span></label>
               <textarea id="message" name="message" rows="6" required
-                placeholder="Décrivez votre demande en quelques lignes…" aria-describedby="message-error"></textarea>
+                placeholder="Décrivez votre demande en quelques lignes…" aria-describedby="message-error"
+                data-i18n-placeholder="form.message.ph"></textarea>
               <p class="field__error" id="message-error" role="alert"></p>
             </div>
 
-            <button class="btn btn--primary contact-form__submit" type="submit">
+            <button class="btn btn--primary contact-form__submit" type="submit" data-i18n="form.submit">
               Préparer l'email
               <span aria-hidden="true">→</span>
             </button>
 
-            <p class="form-note">
+            <p class="form-note" data-i18n="form.note">
               Le bouton ouvre votre logiciel de messagerie avec le message prérempli.
               Si rien ne s'ouvre, copiez l'adresse email ci-contre.
             </p>
@@ -1100,12 +1109,13 @@ Group: ghostroot
     <div class="container footer__inner">
       <div>
         <p class="footer__name">Ronus Eldo TOLIZARA</p>
-        <p class="footer__text">Étudiant en génie informatique — ISSTM Mahajanga, Madagascar.</p>
+        <p class="footer__text" data-i18n="footer.role">Étudiant en génie informatique — ISSTM Mahajanga, Madagascar.</p>
       </div>
       <div class="footer__right">
-        <p class="footer__text">Portfolio construit en HTML, CSS et JavaScript vanilla.</p>
+        <p class="footer__text" data-i18n="footer.built">Portfolio construit en HTML, CSS et JavaScript vanilla.</p>
         <p class="footer__text">
-          <a href="https://github.com/Ronus-E/Portfolio" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Ronus-E/Portfolio" target="_blank" rel="noopener noreferrer"
+            data-i18n="footer.source">
             Code source <span aria-hidden="true">↗</span>
           </a>
           <span aria-hidden="true">·</span>
@@ -1115,6 +1125,7 @@ Group: ghostroot
     </div>
   </footer>
 
+  <script src="i18n.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 

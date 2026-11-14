@@ -12,6 +12,7 @@
    8. Copie de l'adresse email
    9. Heure locale de Mahajanga
    10. Année du pied de page
+   11. Bascule de langue FR / EN (moteur dans i18n.js)
    ========================================================================= */
 
 "use strict";
@@ -19,6 +20,10 @@
 (() => {
   const root = document.documentElement;
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Traduction des messages produits ici. Les textes vivent dans i18n.js :
+     on retombe sur la clé elle-même si i18n.js n'a pas pu se charger. */
+  const t = (key) => (window.PortfolioI18N ? window.PortfolioI18N.t(key) : key);
 
   /* La classe n'est ajoutée que si le script s'exécute : sans JS, tout reste
      visible. Le CSS neutralise l'effet si l'utilisateur réduit les animations. */
@@ -35,7 +40,7 @@
     if (!navToggle || !navMenu) return;
     navMenu.classList.toggle("is-open", open);
     navToggle.setAttribute("aria-expanded", String(open));
-    navToggle.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+    navToggle.setAttribute("aria-label", open ? t("js.menu.close") : t("js.menu.open"));
   }
 
   function closeMenu() {
@@ -234,10 +239,16 @@
       const name = nameInput ? nameInput.value.trim() : "";
       const email = emailInput ? emailInput.value.trim() : "";
       const message = messageInput ? messageInput.value.trim() : "";
-      const subject = subjectInput ? subjectInput.value : "Message depuis le portfolio";
+      /* Le libellé de l'option suit la langue active ; sa valeur reste un
+         identifiant interne en français. On envoie donc le texte visible. */
+      const selectedOption =
+        subjectInput && subjectInput.selectedOptions ? subjectInput.selectedOptions[0] : null;
+      const subject = selectedOption
+        ? selectedOption.textContent.trim()
+        : t("js.form.subject.default");
 
       if (name.length < 2) {
-        setFieldError(nameInput, nameError, "Indiquez au moins deux caractères.");
+        setFieldError(nameInput, nameError, t("js.form.err.name"));
         firstInvalid = firstInvalid || nameInput;
       } else {
         clearFieldError(nameInput, nameError);
@@ -245,14 +256,14 @@
 
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
       if (!emailPattern.test(email)) {
-        setFieldError(emailInput, emailError, "Indiquez une adresse email valide.");
+        setFieldError(emailInput, emailError, t("js.form.err.email"));
         firstInvalid = firstInvalid || emailInput;
       } else {
         clearFieldError(emailInput, emailError);
       }
 
       if (message.length < 10) {
-        setFieldError(messageInput, messageError, "Écrivez au moins dix caractères.");
+        setFieldError(messageInput, messageError, t("js.form.err.message"));
         firstInvalid = firstInvalid || messageInput;
       } else {
         clearFieldError(messageInput, messageError);
@@ -260,7 +271,7 @@
 
       if (firstInvalid) {
         if (formStatus) {
-          formStatus.textContent = "Le formulaire contient une erreur. Vérifiez les champs signalés.";
+          formStatus.textContent = t("js.form.err.summary");
         }
         firstInvalid.focus();
         return;
@@ -268,13 +279,13 @@
 
       const subjectLine = `[Portfolio] ${subject} — ${name}`;
       const bodyLines = [
-        `Nom : ${name}`,
-        `Email : ${email}`,
+        `${t("js.form.mailto.name")} : ${name}`,
+        `${t("js.form.mailto.email")} : ${email}`,
         "",
         message,
         "",
         "—",
-        "Message préparé depuis le portfolio de Ronus.",
+        t("js.form.mailto.footer"),
       ];
 
       const mailto =
@@ -283,8 +294,7 @@
         `&body=${encodeURIComponent(bodyLines.join("\n"))}`;
 
       if (formStatus) {
-        formStatus.textContent =
-          "Votre logiciel de messagerie va s'ouvrir avec le message prérempli. Sinon, copiez l'adresse email.";
+        formStatus.textContent = t("js.form.status");
       }
 
       window.location.href = mailto;
@@ -334,9 +344,7 @@
       }
 
       if (copyStatus) {
-        copyStatus.textContent = copied
-          ? "Adresse copiée dans le presse-papiers."
-          : "Copie automatique impossible — sélectionnez l'adresse manuellement.";
+        copyStatus.textContent = copied ? t("js.copy.ok") : t("js.copy.fail");
       }
 
       window.setTimeout(() => {
@@ -376,4 +384,35 @@
   if (yearElement) {
     yearElement.textContent = String(new Date().getFullYear());
   }
+
+  /* -----------------------------------------------------------------------
+     11. BASCULE DE LANGUE FR / EN
+     Le remplacement des textes est fait par i18n.js, qui émet l'événement
+     « portfolio:langchange ». Ici on ne gère que ce que i18n.js ne peut pas
+     savoir : le libellé du menu mobile et les messages transitoires.
+     ----------------------------------------------------------------------- */
+  const errorIds = ["name-error", "email-error", "message-error"];
+  const fieldIds = ["name", "email", "message"];
+
+  document.addEventListener("portfolio:langchange", () => {
+    /* Le libellé dépend de l'état ouvert/fermé, pas seulement de la langue. */
+    if (navToggle && navMenu) {
+      setMenuState(navMenu.classList.contains("is-open"));
+    }
+
+    /* Les messages de statut sont transitoires : on les vide plutôt que de
+       les traduire après coup, pour éviter un texte orphelin hors contexte. */
+    if (formStatus) formStatus.textContent = "";
+    if (copyStatus) copyStatus.textContent = "";
+
+    errorIds.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) element.textContent = "";
+    });
+
+    fieldIds.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) element.removeAttribute("aria-invalid");
+    });
+  });
 })();
